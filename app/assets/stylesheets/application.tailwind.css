@@ -1,5 +1,6 @@
 @import "./fonts.css";
 @import "./forms/floating_inputs.css";
+@import "air-datepicker/air-datepicker.css";
 @import "tailwindcss";
 
 @theme {
@@ -25,4 +26,15 @@
   --color-darker-sheet: rgba(196, 194, 178, .2);
   --color-white-coffee: #d9d9d9;
   --font-sans: "Cabin", sans-serif;
+}
+
+/* Floating UI popvers */
+
+#tooltip {
+  width: max-content;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 4px;
+  font-size: 90%;
 }
