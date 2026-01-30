@@ -1,0 +1,107 @@
+harare_bulawayo:
+  from_city: "Harare"
+  to_city: "Bulawayo"
+  distance_km: 438
+  status: true
+
+bulawayo_harare:
+  from_city: "Bulawayo"
+  to_city: "Harare"
+  distance_km: 438
+  status: true
+
+harare_mutare:
+  from_city: "Harare"
+  to_city: "Mutare"
+  distance_km: 263
+  status: true
+
+mutare_harare:
+  from_city: "Mutare"
+  to_city: "Harare"
+  distance_km: 263
+  status: true
+
+bulawayo_victoriafalls:
+  from_city: "Bulawayo"
+  to_city: "Victoria Falls"
+  distance_km: 440
+  status: true
+
+victoriafalls_bulawayo:
+  from_city: "Victoria Falls"
+  to_city: "Bulawayo"
+  distance_km: 440
+  status: true
+
+harare_masvingo:
+  from_city: "Harare"
+  to_city: "Masvingo"
+  distance_km: 292
+  status: true
+
+masvingo_harare:
+  from_city: "Masvingo"
+  to_city: "Harare"
+  distance_km: 292
+  status: true
+
+harare_chinhoyi:
+  from_city: "Harare"
+  to_city: "Chinhoyi"
+  distance_km: 120
+  status: true
+
+chinhoyi_harare:
+  from_city: "Chinhoyi"
+  to_city: "Harare"
+  distance_km: 120
+  status: true
+
+harare_kariba:
+  from_city: "Harare"
+  to_city: "Kariba"
+  distance_km: 631
+  status: true
+
+kariba_harare:
+  from_city: "Kariba"
+  to_city: "Harare"
+  distance_km: 631
+  status: true
+
+harare_beitbridge:
+  from_city: "Harare"
+  to_city: "Beitbridge"
+  distance_km: 571
+  status: true
+
+beitbridge_harare:
+  from_city: "Beitbridge"
+  to_city: "Harare"
+  distance_km: 571
+  status: true
+
+bulawayo_gweru:
+  from_city: "Bulawayo"
+  to_city: "Gweru"
+  distance_km: 164
+  status: true
+
+gweru_bulawayo:
+  from_city: "Gweru"
+  to_city: "Bulawayo"
+  distance_km: 164
+  status: true
+
+masvingo_beitbridge:
+  from_city: "Masvingo"
+  to_city: "Beitbridge"
+  distance_km: 200
+  status: true
+
+beitbridge_masvingo:
+  from_city: "Beitbridge"
+  to_city: "Masvingo"
+  distance_km: 200
+  status: true
