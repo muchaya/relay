@@ -1,0 +1,215 @@
+/* Cabin Regular */
+@font-face {
+  font-family: 'Cabin';
+  src: url('Cabin-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Cabin Italic */
+@font-face {
+  font-family: 'Cabin';
+  src: url('Cabin-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Cabin Medium */
+@font-face {
+  font-family: 'Cabin';
+  src: url('Cabin-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Cabin Medium Italic */
+@font-face {
+  font-family: 'Cabin';
+  src: url('Cabin-MediumItalic.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Cabin SemiBold */
+@font-face {
+  font-family: 'Cabin';
+  src: url('Cabin-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Cabin SemiBold Italic */
+@font-face {
+  font-family: 'Cabin';
+  src: url('Cabin-SemiBoldItalic.ttf') format('truetype');
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Cabin Bold */
+@font-face {
+  font-family: 'Cabin';
+  src: url('Cabin-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Cabin Bold Italic */
+@font-face {
+  font-family: 'Cabin';
+  src: url('Cabin-BoldItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Cabin Condensed Regular */
+@font-face {
+  font-family: 'Cabin Condensed';
+  src: url('Cabin_Condensed-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Cabin Condensed Italic */
+@font-face {
+  font-family: 'Cabin Condensed';
+  src: url('Cabin_Condensed-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Cabin Condensed Medium */
+@font-face {
+  font-family: 'Cabin Condensed';
+  src: url('Cabin_Condensed-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Cabin Condensed Medium Italic */
+@font-face {
+  font-family: 'Cabin Condensed';
+  src: url('Cabin_Condensed-MediumItalic.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Cabin Condensed SemiBold */
+@font-face {
+  font-family: 'Cabin Condensed';
+  src: url('Cabin_Condensed-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Cabin Condensed SemiBold Italic */
+@font-face {
+  font-family: 'Cabin Condensed';
+  src: url('Cabin_Condensed-SemiBoldItalic.ttf') format('truetype');
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Cabin Condensed Bold */
+@font-face {
+  font-family: 'Cabin Condensed';
+  src: url('Cabin_Condensed-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Cabin Condensed Bold Italic */
+@font-face {
+  font-family: 'Cabin Condensed';
+  src: url('Cabin_Condensed-BoldItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Cabin SemiCondensed Regular */
+@font-face {
+  font-family: 'Cabin SemiCondensed';
+  src: url('Cabin_SemiCondensed-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Cabin SemiCondensed Italic */
+@font-face {
+  font-family: 'Cabin SemiCondensed';
+  src: url('Cabin_SemiCondensed-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Cabin SemiCondensed Medium */
+@font-face {
+  font-family: 'Cabin SemiCondensed';
+  src: url('Cabin_SemiCondensed-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Cabin SemiCondensed Medium Italic */
+@font-face {
+  font-family: 'Cabin SemiCondensed';
+  src: url('Cabin_SemiCondensed-MediumItalic.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Cabin SemiCondensed SemiBold */
+@font-face {
+  font-family: 'Cabin SemiCondensed';
+  src: url('Cabin_SemiCondensed-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Cabin SemiCondensed SemiBold Italic */
+@font-face {
+  font-family: 'Cabin SemiCondensed';
+  src: url('Cabin_SemiCondensed-SemiBoldItalic.ttf') format('truetype');
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Cabin SemiCondensed Bold */
+@font-face {
+  font-family: 'Cabin SemiCondensed';
+  src: url('Cabin_SemiCondensed-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Cabin SemiCondensed Bold Italic */
+@font-face {
+  font-family: 'Cabin SemiCondensed';
+  src: url('Cabin_SemiCondensed-BoldItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
