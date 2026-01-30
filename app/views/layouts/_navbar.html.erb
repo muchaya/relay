@@ -1,0 +1,17 @@
+<nav class="py-3">
+  <div class="max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto py-2">
+    <%= link_to root_path class: "block" do %>
+      <span class="text-2xl font-bold">Relay.</span>
+    <% end %>
+
+    <ul class="flex items-center gap-x-6">
+      <li><%= link_to "Search", "", class: "block rounded-sm" %></li>
+      <li><%= link_to "Post a trip", "", class: "block rounded-sm" %></li>
+      <li>
+        <button class="bg-gray-200 px-5 py-2 rounded-full">
+          Log in or sign up
+        </button>
+      </li>
+    </ul>
+  </div>
+</nav>

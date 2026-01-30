@@ -22,7 +22,8 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
   </head>
 
-  <body class="font-sans">
+  <body class="font-sans px-12">
+    <%= render "layouts/navbar" %>
     <%= yield %>
   </body>
 </html>

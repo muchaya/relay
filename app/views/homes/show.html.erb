@@ -1,1 +1,130 @@
-<h1 class="text-2xl font-bold">Welcome to Relay</h1>
+<section class="mt-16">
+
+  <div class="flex flex-col gap-y-1 wrap-break-word mt-20 font-extrabold text-6xl tracking-tight mb-6">
+    <span>Trusted, pre-booked trips</span>
+    <span class="relative flex flex-col overflow-clip">
+      <span class="w-0"> </span>
+      <span id="current" class="absolute top-0 left-0 translate-y-0 pb-1 mb-2 leading-12">better than hitch-hiking.</span>
+      <span id="next" class="absolute top-0 left-0 translate-y-full pb-1 mb-2">on major highway routes.</span>
+    </span>
+  </div>
+  
+
+<div class="mt-6 border border-gray-400 flex rounded-full">
+  <div class="w-2/8 border-r border-gray-400 flex items-center">
+
+  <div class="ml-8 floating-input-container">
+    <input
+      type="email"
+      id="from_city"
+      name="email_address"
+      required
+      placeholder="Leaving from"
+      class="floating-input"
+    />
+
+    <label
+      for="email_address"
+      class="floating-label text-lg text-gray-600"
+    >
+      Leaving from
+    </label>
+  </div>
+
+  </div>
+
+  <div class="floating-container w-2/8 border-r border-gray-400 flex items-center">
+    <div class="ml-4 floating-input-container">
+    <input
+      type="em"
+      id="from_city"
+      name="email_add"
+      required
+      placeholder="Going to"
+      class="floating-input"
+    />
+
+    <label
+      for="email_add"
+      class="floating-label text-lg text-gray-600"
+    >
+      Going to
+    </label>
+    </div>
+
+  </div>
+
+  <div class="w-1/8 border-r border-gray-400 flex flex-col justify-center pl-4">
+    <p class="text-sm text-gray-600">Date</p>
+    <p class="text-xl font-medium tracking-wide">Today</p>
+  </div>
+
+  <div class="w-1/8 border-r border-gray-400 flex flex-col justify-center pl-4">
+    <p class="text-sm text-gray-600">Passengers</p>
+    <p class="text-xl font-medium tracking-wide">1 passenger</p>
+  </div>
+
+  <div class="w-1/8 flex flex-col justify-center pl-4">
+    <p class="text-sm text-gray-600">Vehicle type</p>
+    <p class="text-xl font-medium tracking-wide">All types</p>
+  </div>
+
+  <div class="w-1/8 flex items-center justify-center p-1">
+    <div class="w-20 h-20 rounded-full bg-black flex items-center justify-center ml-auto">
+      <%= inline_svg_tag "search.svg", class: "w-8 h-8 text-white" %>
+    </div>
+  </div>
+</div>
+
+
+  </div>
+</section>
+
+
+<script>
+  var phrases = ['on major highway routes.', 'better than hitch-hiking.'];
+  var currentIndex = 0;
+  var currentElem = document.getElementById('current');
+  var nextElem = document.getElementById('next');
+  var duration = 500; // transition duration in ms
+  var pause = 5000; // pause between slides in ms
+
+  function animateSlide() {
+    // Add transition classes to slide
+    currentElem.classList.add('transition-transform', 'duration-500', '!-translate-y-full');
+    nextElem.classList.add('transition-transform', 'duration-500', '!translate-y-0');
+
+    setTimeout(() => {
+      // Add no-transition for instant reset
+      currentElem.classList.add('!transition-none');
+      nextElem.classList.add('!transition-none');
+
+      // Remove transition classes (positions snap back to base, but with no animation)
+      currentElem.classList.remove('transition-transform', 'duration-500', '!-translate-y-full');
+      // At this point, current snaps to y-0 with old text
+
+      // Immediately update current text to match the new visible one
+      currentElem.innerText = nextElem.innerText;
+
+      // Now remove next's override to snap it back to y-full
+      nextElem.classList.remove('transition-transform', 'duration-500', '!translate-y-0');
+
+      // Update next text to the following phrase (now hidden)
+      const nextIndex = (currentIndex + 1) % phrases.length;
+      nextElem.innerText = phrases[nextIndex];
+
+      // Remove no-transition
+      currentElem.classList.remove('!transition-none');
+      nextElem.classList.remove('!transition-none');
+
+      // Update index
+      currentIndex = (currentIndex + 1) % phrases.length;
+
+      // Schedule next cycle
+      setTimeout(animateSlide, pause);
+    }, duration);
+  }
+
+  // Start the first cycle after initial pause
+  setTimeout(animateSlide, pause);
+</script>

@@ -1,0 +1,62 @@
+:root {
+  --primary-color: #111;
+  --text-color: #333;
+  --placeholder-color: #6b7280;
+  --background-color: #fff;
+  --hover-color: #f3f4f6;
+  --focus-ring: #333;
+}
+
+.floating-input-container {
+  position: relative;
+  width: 100%;
+  height: 60px; /* fix container height */
+}
+
+.floating-input {
+  width: 100%;
+  height: 100%;
+  font-size: 24px;
+  color: var(--text-color);
+  outline: none;
+  padding: 0 12px;
+  box-sizing: border-box;
+
+  /* input vertical shift animation */
+  transition: transform 0.2s ease;
+}
+
+/* Move input text slightly down when placeholder is shown */
+.floating-input:placeholder-shown, .floating-input {
+  transform: translateY(8px); /* adjust downwards */
+}
+
+/* Label styling */
+.floating-label {
+  position: absolute;
+  left: 12px;
+  top: 16px;
+  font-size: 18px;
+  color: var(--placeholder-color);
+  pointer-events: none;
+  transition: transform 0.2s ease, font-size 0.2s ease, color 0.2s ease;
+  transform-origin: left top;
+}
+
+/* Float label when input is focused or has value */
+.floating-input:focus + .floating-label,
+.floating-input:not(:placeholder-shown) + .floating-label {
+  transform: translateY(-12px) scale(0.65);
+  color: var(--primary-color);
+}
+
+/* Keep placeholder invisible */
+.floating-input::placeholder {
+  color: transparent;
+}
+
+/* Optional: hide floating icon inside label */
+.floating-input:focus + .floating-label .floating-icon,
+.floating-input:not(:placeholder-shown) + .floating-label .floating-icon {
+  display: none;
+}

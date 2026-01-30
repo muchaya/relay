@@ -1,6 +1,6 @@
 @import "./fonts.css";
+@import "./forms/floating_inputs.css";
 @import "tailwindcss";
-
 
 @theme {
   --color-alice-blue: rgba(0, 178, 255, 0.063);

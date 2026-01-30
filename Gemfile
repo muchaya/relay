@@ -17,6 +17,7 @@ gem "solid_cache"
 gem "solid_queue"
 gem "solid_cable"
 
+gem "inline_svg"
 
 gem "bootsnap", require: false
 gem "kamal", require: false
