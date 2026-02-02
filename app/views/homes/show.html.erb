@@ -1,4 +1,4 @@
-<section class="mt-16">
+<section data-controller="popover" class="mt-16">
 
   <div class="flex flex-col gap-y-1 wrap-break-word mt-20 font-extrabold text-6xl tracking-tight mb-6">
     <span>Trusted, pre-booked trips</span>
@@ -10,8 +10,8 @@
   </div>
   
 
-<div class="mt-6 border border-gray-400 flex rounded-full">
-  <div class="w-2/8 border-r border-gray-400 flex items-center">
+<div data-controller="datepicker" data-popover-target="filtersContainer" class="mt-6 relative flex rounded-full bg-sheet border border-gray-300 shadow-lg shadow-gray-200">
+  <div class="w-2/8 border-r border-gray-200 flex items-center">
 
   <div class="ml-8 floating-input-container">
     <input
@@ -33,7 +33,7 @@
 
   </div>
 
-  <div class="floating-container w-2/8 border-r border-gray-400 flex items-center">
+  <div class="floating-container w-2/8 border-r border-gray-200 flex items-center">
     <div class="ml-4 floating-input-container">
     <input
       type="em"
@@ -54,13 +54,13 @@
 
   </div>
 
-  <div data-controller="datepicker" data-action="click->datepicker#show" class="w-1/8 border-r border-gray-400 flex flex-col justify-center pl-4 cursor-pointer">
+  <div data-popover-id-param="date-popover" data-action="click->popover#open" class="w-1/8 border-r border-gray-200 flex flex-col justify-center pl-4 cursor-pointer">
     <p class="text-sm text-gray-600">Date</p>
     <p class="text-xl font-medium tracking-wide">Today</p>
-    <input name="date" type="text" data-datepicker-target="datepicker" class="w-0 h-0 opacity-0 pointer-events-none"/>
+
   </div>
 
-  <div class="w-1/8 border-r border-gray-400 flex flex-col justify-center pl-4">
+  <div data-popover-target="trigger" data-popover-id-param="passengers-popover" data-action="click->popover#open" data-popover-id-param="passengers-popover" class="w-1/8 border-r border-gray-200 flex flex-col justify-center pl-4 cursor-pointer">
     <p class="text-sm text-gray-600">Passengers</p>
     <p class="text-xl font-medium tracking-wide">1 passenger</p>
   </div>
@@ -75,55 +75,104 @@
       <%= inline_svg_tag "search.svg", class: "w-8 h-8 text-white" %>
     </div>
   </div>
+
+<div id="date-popover" class="hidden tooltip">
+  <div class="border border-gray-300 shadow-lg shadow-gray-300 px-6 pb-4 rounded-lg bg-white ">
+    <input name="date" type="text" data-datepicker-target="datepicker" class="w-0 h-0 opacity-0 pointer-events-none"/>
+  </div>
+</div>
+
+
+ <div id="passengers-popover" class="hidden tooltip">
+    <div class="flex items-center">
+      <div class="flex items-start gap-x-16 border border-gray-300 shadow-lg shadow-gray-300 py-4 px-6 rounded-lg bg-white">
+        <div class="flex items-start gap-x-32">
+          <div>
+            <h1 class="text-[12px] uppercase tracking-wide text-gray-600">Passengers</h1>
+            
+            
+          <div class="flex items-center gap-x-12 mt-6">
+            <div class="">
+              <h2 class="text-[16px] tracking-wide text-charcoal-blue">People</h2>
+              <p class="text-gray-500 text-xs tracking-wide">At least one adult</p>
+            </div>
+
+            <div class="flex items-center gap-x-4">
+              <div class="h-8 w-8 rounded-full border border-gray-500 flex items-center justify-center">
+                <%= inline_svg_tag "minus.svg", class: "block" %>
+              </div>
+
+              <span class="block">1</span>
+
+              <div class="h-8 w-8 rounded-full border border-gray-500 flex items-center justify-center">
+                <%= inline_svg_tag "plus.svg", class: "block" %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="w-64">
+          <h1 class="text-[12px] uppercase tracking-wide text-gray-600">Requirements</h1>
+
+          <div class="flex flex-col gap-y-6 mt-6">
+            <div class="flex items-center justify-between">
+              <h2 class="text-[16px] tracking-wide text-charcoal-blue">Luggage (20kg or less)</h2>
+              <input type="radio" name="set_as_cover" value="" class="toggle-switch">
+            </div>
+            <div class="flex items-center justify-between">
+              <h2 class="text-[16px] tracking-wide text-charcoal-blue">Women Only</h2>
+              <input type="radio" name="set_as_cover_1" value="" class="toggle-switch">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>  
+    
+
+
+
+
+
+
+
+
 </div>
 
 
   </div>
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
 </section>
 
 
-<div data-controller="popover" class="mt-24">
-  <button id="button">My reference element</button>
-  <div id="tooltip" class="flex items-center">
-    <div class="p-3">
-      <h1 class="text-[12px] uppercase tracking-wide">Passengers</h1>
 
-      
-      <div class="mt-6 flex items-center gap-x-12">
-        <div class="">
-          <h2 class="text-[14px] tracking-wide">People</h2>
-          <p class="text-gray-500 text-xs tracking-wide">At least one adult</p>
-        </div>
-
-        <div class="flex items-center gap-x-4">
-          <div class="h-7 w-7 rounded-full border border-gray-500 flex items-center justify-center">
-            <%= inline_svg_tag "minus.svg", class: "block" %>
-          </div>
-
-          <span class="block">1</span>
-
-          <div class="h-7 w-7 rounded-full border border-gray-500 flex items-center justify-center">
-            <%= inline_svg_tag "plus.svg", class: "block" %>
-          </div>
-        </div>
-      </div>
-
-      <div class="">
-        <h1 class="text-[12px] uppercase tracking-wide mt-12">Requirements</h1>
-      </div>
-
-
-    </div>
-  </div>
-</div>
-
+  
+ 
 
 <script>
   var phrases = ['on major highway routes.', 'better than hitch-hiking.'];
   var currentIndex = 0;
   var currentElem = document.getElementById('current');
   var nextElem = document.getElementById('next');
-  var duration = 1000; // transition duration in ms
+  var duration = 500; // transition duration in ms
   var pause = 5000; // pause between slides in ms
 
   function animateSlide() {

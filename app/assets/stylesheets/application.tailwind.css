@@ -1,10 +1,13 @@
 @import "./fonts.css";
 @import "./forms/floating_inputs.css";
+@import "./forms/toggle_switch.css";
 @import "air-datepicker/air-datepicker.css";
+@import "./overrides/air_datepicker.css";
 @import "tailwindcss";
 
 @theme {
   --color-alice-blue: rgba(0, 178, 255, 0.063);
+  --color-charcoal-blue: rgb(33, 40, 49);
   --color-black-100: #111;
   --color-black-200: #222;
   --color-black-300: #333;
@@ -23,18 +26,14 @@
   --color-off-white: rgb(250, 251, 253);
   --color-old-sheet: #f8f7f5;
   --color-sheet: #fff;
-  --color-darker-sheet: rgba(196, 194, 178, .2);
+  --color-darker-sheet: #EEECE3;
   --color-white-coffee: #d9d9d9;
   --font-sans: "Cabin", sans-serif;
 }
 
 /* Floating UI popvers */
 
-#tooltip {
+.tooltip {
   width: max-content;
   position: absolute;
-  top: 0;
-  left: 0;
-  border-radius: 4px;
-  font-size: 90%;
 }
