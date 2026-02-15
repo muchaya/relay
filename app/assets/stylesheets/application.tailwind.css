@@ -6,11 +6,13 @@
 @import "tailwindcss";
 
 @theme {
+  --color-amaranth: #c93684;
   --color-alice-blue: rgba(0, 178, 255, 0.063);
   --color-charcoal-blue: rgb(33, 40, 49);
   --color-black-100: #111;
   --color-black-200: #222;
   --color-black-300: #333;
+  --color-black-300: #444;
   --color-black-600: #667;
   --color-black-700: #777;
   --color-black-800: #888;
@@ -28,6 +30,7 @@
   --color-sheet: #fff;
   --color-darker-sheet: #EEECE3;
   --color-white-coffee: #d9d9d9;
+  --color-violet-blue: rgb(82, 59, 228);
   --font-sans: "Cabin", sans-serif;
 }
 
