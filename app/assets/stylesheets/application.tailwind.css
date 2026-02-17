@@ -1,6 +1,7 @@
 @import "./fonts.css";
 @import "./forms/floating_inputs.css";
 @import "./forms/toggle_switch.css";
+@import "./miscellaneous/itinerary.css";
 @import "air-datepicker/air-datepicker.css";
 @import "./overrides/air_datepicker.css";
 @import "tailwindcss";
@@ -27,6 +28,7 @@
   --color-orange-salmon: rgb(185, 91, 70);
   --color-off-white: rgb(250, 251, 253);
   --color-old-sheet: #f8f7f5;
+  --color-prussian-blue: #003153;
   --color-sheet: #fff;
   --color-darker-sheet: #EEECE3;
   --color-white-coffee: #d9d9d9;
@@ -39,4 +41,24 @@
 .tooltip {
   width: max-content;
   position: absolute;
+}
+
+
+.car-sliding {
+  position: absolute;
+  z-index: 1;
+  width: 79px;
+  opacity: 1;
+  left: 0;
+  transform-style: preserve-3d;
+  will-change: transform;
+  animation: car-velocity-shaped 130s cubic-bezier(0.45, 0.05, 0.65, 0.95) infinite;
+  /* 130s = 10s animation + 120s (2 min) pause */
+}
+
+@keyframes car-velocity-shaped {
+  0%    { transform: translate3d(-79px, 0, 0); }
+  1.5%  { transform: translate3d(-79px, 0, 0); } /* ~2s entry pause */
+  7.7%  { transform: translate3d(100vw, 0, 0); } /* car exits (~10s mark) */
+  100%  { transform: translate3d(100vw, 0, 0); } /* hold off-screen for ~120s */
 }

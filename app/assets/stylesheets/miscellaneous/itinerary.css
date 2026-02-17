@@ -1,0 +1,29 @@
+.itinerary-line {
+  @apply w-[72] border-[2] relative;
+}
+
+.itinerary-line:first-of-type::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  inset-inline-start: -3px;
+  width: 12px;
+  height: 12px;
+  transform: translateY(-50%);
+  background-color: white;
+  border: 2px solid; 
+  border-radius: 50%;
+}
+
+.itinerary-line:last-of-type::after{
+  content: "";
+  position: absolute;
+  top: 50%;
+  inset-inline-end: -3px;
+  width: 12px;
+  height: 12px;
+  transform: translateY(-50%);
+  background-color: white;
+  border: 2px solid; 
+  border-radius: 50%;
+}

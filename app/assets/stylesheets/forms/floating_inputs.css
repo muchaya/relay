@@ -1,36 +1,49 @@
 :root {
   --primary-color: #111;
-  --text-color: #333;
+  --text-color: #222;
   --placeholder-color: #667;
   --background-color: #fff;
   --hover-color: #f3f4f6;
   --focus-ring: #333;
+  --color-amaranth:  #c93684;
+  --color-violet-blue: #523be4;
 }
-
 .floating-input-container {
   position: relative;
   height: 60px; /* fix container height */
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.floating-asterisk {
+  color: var(--primary-color);
+  font-size: 24px;
+  align-self: center;
+}
+
+.floating-input-wrapper {
+  position: relative;
+  flex: 1;
+  height: 100%;
 }
 
 .floating-input {
   width: 100%;
   height: 100%;
-  font-size: 24px;
+  font-size: 20px;
   color: var(--text-color);
   outline: none;
   padding: 0 12px;
   box-sizing: border-box;
-
-  /* input vertical shift animation */
   transition: transform 0.2s ease;
 }
 
-/* Move input text slightly down when placeholder is shown */
 .floating-input:placeholder-shown, .floating-input {
   transform: translateY(8px); /* adjust downwards */
 }
 
-/* Label styling */
+
 .floating-label {
   position: absolute;
   left: 12px;
@@ -42,19 +55,33 @@
   transform-origin: left top;
 }
 
-/* Float label when input is focused or has value */
+
 .floating-input:focus + .floating-label,
 .floating-input:not(:placeholder-shown) + .floating-label {
-  transform: translateY(-12px) scale(0.65);
+  transform: translateY(-12px) scale(0.8);
   color: var(--primary-color);
+  font-weight: medium;
 }
 
-/* Keep placeholder invisible */
+.floating-input:focus + .floating-label.with-violet-blue,
+.floating-input:not(:placeholder-shown) + .floating-label.with-violet-blue {
+  transform: translateY(-12px) scale(0.8);
+  color: var(--color-violet-blue); 
+}
+
+.floating-input:focus + .floating-label.with-amaranth,
+.floating-input:not(:placeholder-shown) + .floating-label.with-amaranth {
+  transform: translateY(-12px) scale(0.8);
+  color: var(--color-amaranth); 
+}
+
+
+
+
 .floating-input::placeholder {
   color: transparent;
 }
 
-/* Optional: hide floating icon inside label */
 .floating-input:focus + .floating-label .floating-icon,
 .floating-input:not(:placeholder-shown) + .floating-label .floating-icon {
   display: none;

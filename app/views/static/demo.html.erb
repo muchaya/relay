@@ -1,0 +1,149 @@
+<div class="flex items-center justify-between mt-12">
+  <h1 class="text-4xl font-bold flex items-center gap-x-3">
+    <p class="block">Harare</p>
+    <%= inline_svg_tag "arrow.svg", class: "w-6 stroke-gray-400 fill-gray-400 stroke-1.5" %>
+    <p class="block">Bulawayo</p>
+    <p class="block text-sm mt-2 bg-violet-blue p-1 text-white rounded-sm">440km</p>
+  </h1>
+
+  <div class="w-1/3 flex items-center gap-x-2">
+    <div class="flex items-center justify-between border border-gray-200 shadow-sm shadow-gray-300 rounded-2xl pl-12 p-1 w-full">
+      <div class="flex items-center gap-x-2">
+        <%= inline_svg_tag "calendar.svg", class: "w-5.5 stroke-black fill-white stroke-2" %>
+        <p class="text-lg">Today</p>
+      </div>
+      <div class="flex items-center gap-x-2">
+        <%= inline_svg_tag "passenger.svg", class: "w-6 stroke-black fill-white stroke-2" %>
+        <p class="text-lg">1 passenger</p>
+      </div>
+      <div class="bg-violet-blue rounded-2xl">
+        <p class="text-lg p-2 px-4 text-white">Search</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= inline_svg_tag "highway_car.svg", class: "car-sliding w-24 mt-4 block"%>
+
+<div class="min-h-screen overflow-hidden pt-6 mt-12 px-16 bg-violet-100/20 border-t border-gray-200 relative left-1/2 right-1/2 w-screen -translate-x-1/2">
+  <div class="flex items-start justify-between">
+    <div class="pl-4 mt-4">
+      <h1 class="text-2xl">No Filters Available</h1>
+    </div>
+
+    <div class="w-2/3 mx-2">
+ <div class="flex items-center gap-x-16 pl-0 p-2 border-b border-gray-300">
+    <div class="pb-2 -mb-3 border-b-3 border-black">
+      <p class="text-lg">All 4</p>
+    </div>
+    <div class="pb-2 -mb-3 flex items-center gap-x-2">
+      <%= inline_svg_tag "car_ultra_compact.svg", class: "w-5 h-5 stroke-2" %>
+      <p class="text-lg">Rideshare</p>
+      <p>3</p>
+    </div>
+    <div class="pb-2 -mb-3 flex items-center gap-x-2">
+      <%= inline_svg_tag "bus_front.svg", class: "w-6 stroke-black stroke-2" %>
+      <p class="text-lg">Bus</p>
+      <p>1</p>
+    </div>
+  </div>
+  <div class="mt-12 flex items-center justify-between">
+    <div class="flex items-center gap-x-6">
+      <h2 class="">Tuesday, 17 February</h2>
+      <div class="flex items-center gap-x-2 text-gray-500">
+        <span class="block">Harare</span>
+        <%= inline_svg_tag "arrow.svg", class: "w-4 stroke-gray-500 fill-gray-500"%>
+        <span class="block">Bulawayo</span>
+      </div>
+    </div>
+    <h2 class="">4 rides available</h2>
+  </div>
+      
+      <div class="flex flex-col gap-y-10 mt-6">
+  
+  <div class="shadow-sm shadow-gray-200 py-4 border border-gray-200 rounded-2xl bg-white hover:border-2 hover:border-violet-blue/50 cursor-pointer">
+    <div class="flex items-start justify-between border-b border-gray-300 pt-1 pb-4 px-6">
+      <div class="flex items-center gap-x-2">
+        <div class="flex flex-col">
+          <div class="flex items-center gap-x-2">
+            <p class="font-bold text-[15px] -mt-0.5">08:00</p>
+            <div class="flex items-center">
+              <div class="itinerary-line"></div>
+              <span class="mx-2 text-black-700">5h40</span>
+              <div class="itinerary-line"></div>
+            </div> 
+          </div>
+          <div class="-mt-1.5">
+            <span class="text-[16px] font-medium">Harare</span>
+          </div>
+        </div>
+        <div class="-mt-0.5">
+          <span class="font-bold text-[15px] block">13:40</span>
+          <span class="text-[16px] font-medium block -mt-1">Bulawayo</span>
+        </div>
+      </div>
+      <h2 class="font-bold text-3xl">$18</h2>
+    </div>
+    <div class="px-6 pt-4">
+      <div class="flex items-center gap-x-6">
+        <%= inline_svg_tag "car_ultra_compact.svg", class: "w-6 h-6 stroke-2 block" %>
+        <div class="flex items-center gap-x-2">
+          <div class="h-10 w-10 rounded-full flex items-center justify-center border-[1.5px] border-violet-blue/60">
+          <img class="mx-auto block object-cover h-9 w-9 rounded-full bg-gray-300 " src="https://media.istockphoto.com/id/174871013/photo/portrait-of-a-mature-woman-with-pleasant-expression.jpg?s=612x612&w=0&k=20&c=iI3uZNUd9b3PCYzg7e7Nbs3dz_dRh_n5Javry39jI9E=">
+
+          </div>
+          <span class="">Stella</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="shadow-sm shadow-gray-200 py-4 border border-gray-200 rounded-2xl bg-white hover:border-2 hover:border-violet-blue/50 cursor-pointer">
+    <div class="flex items-start justify-between border-b border-gray-300 pt-1 pb-4 px-6">
+      <div class="flex items-center gap-x-2">
+        <div class="flex flex-col">
+          <div class="flex items-center gap-x-2">
+            <p class="font-bold text-[15px] -mt-0.5">13:00</p>
+            <div class="flex items-center">
+              <div class="itinerary-line"></div>
+              <span class="mx-2 text-black-700">6h30</span>
+              <div class="itinerary-line"></div>
+            </div> 
+          </div>
+          <div class="-mt-1.5">
+            <span class="text-[16px] font-medium">Harare</span>
+          </div>
+        </div>
+        <div class="-mt-0.5">
+          <span class="font-bold text-[15px] block">19:30</span>
+          <span class="text-[16px] font-medium block -mt-1">Bulawayo</span>
+        </div>
+      </div>
+      <h2 class="font-bold text-3xl">$25</h2>
+    </div>
+    <div class="px-6 pt-4 pb-2">
+      <div class="flex items-center gap-x-6">
+        <%= inline_svg_tag "bus_front.svg", class: "w-8 h-8 stroke-2 block" %>
+        <div class="flex items-center gap-x-2">
+          <span class="">Eagleliner coaches</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+        
+        
+
+      
+      
+      </div>
+
+    </div>
+
+ 
+  </div>
+  
+</div>
+
