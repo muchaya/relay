@@ -7,11 +7,11 @@ export default class extends Controller {
   static targets = ['filtersContainer', 'popover']
 
   open(event) {
-    this.closeOtherPopovers()
+    this.closeOtherPopovers(event)
 
     const popoverId = event.params.id
 
-    const reference = event.target
+    const reference = event.currentTarget
 
     const popover = document.getElementById(popoverId)
 
@@ -20,27 +20,33 @@ export default class extends Controller {
     const referenceRect = reference.getBoundingClientRect()
     const containerRect = container.getBoundingClientRect()
 
-    console.log(window.innerWidth)
-
     const left = referenceRect.left - containerRect.left
 
-    console.log(left)
-
-    // Vertical: always below the search box
-    const top = container.offsetHeight + 8
+    const top = `${referenceRect.bottom + window.scrollY + event.params.offset}px`
 
     popover.classList.remove("hidden")
 
     Object.assign(popover.style, {
-      right: "36px",
-      top: `${top}px`,
-      left: "auto"
+      width: `${referenceRect.width}px`,
+      left: left,
+      top: top
     })
   }
 
-  closeOtherPopovers() {
+  outsideClick(event) { 
+    const isOutside = !event.target.closest('[data-popover-target="popover"]') &&
+                      !event.target.closest('[data-action="click->popover#open"]')
+
+   if(!isOutside) return
+                      
+    this.popoverTargets.forEach((popover) => {
+      popover.classList.add('hidden')
+    })
+  }
+
+  closeOtherPopovers(event) {
     this.popoverTargets.forEach( (popover)=> {
-      if(popover !== event.target) {
+      if(popover.id != event.currentTarget.dataset.popoverIdParam) {
         popover.classList.add('hidden')
       }
     })
