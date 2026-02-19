@@ -10,5 +10,8 @@ application.register("datepicker", DatepickerController)
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
+import LocationFiltersController from "./location_filters_controller"
+application.register("location-filters", LocationFiltersController)
+
 import PopoverController from "./popover_controller"
 application.register("popover", PopoverController)

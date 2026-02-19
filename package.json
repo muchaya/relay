@@ -14,6 +14,7 @@
     "@hotwired/turbo-rails": "^8.0.23",
     "@tailwindcss/cli": "^4.1.15",
     "air-datepicker": "^3.6.0",
+    "fuse.js": "^7.1.0",
     "tailwindcss": "^4.1.15"
   }
 }
