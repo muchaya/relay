@@ -1,5 +1,6 @@
-<section data-controller="popover" 
-         data-action="click@document->popover#outsideClick"
+<section data-controller="popover location-filters" 
+         data-action="click@document->popover#outsideClick location-filters:place-selected->popover#closeAllPopovers"
+         data-location-filters-routes-graph-value="<%= @routes_graph %>" 
         class="mt-16">
 
 <div class="flex items-start gap-x-28">
@@ -9,17 +10,12 @@
       <h1 class="mt-1">a bus with <span class="tracking-tighter">Relay.</span></h1>
     </div>
 
-    <div data-controller="location-filters" data-location-filters-places-value='[
-       {"name": "Mutare", "province": "Manicaland", "type": "City"},
-       {"name": "Masvingo", "province": "Masvingo", "type": "City"},
-       {"name": "Harare", "province": "Harare Metropolitan", "type": "Capital city"},
-       {"name": "Bulawayo", "province": "Bulawayo", "type": "City"}
-     ]'  class="flex items-center">
+    <div class="flex items-center">
       <div class="w-full">
         <div data-popover-id-param="leaving-from-popover" data-action="click->popover#open" data-popover-offset-param="0" class="floating-input-container border border-gray-300 rounded-t-xl border-b-0">
           <%= inline_svg_tag "location.svg", class: "ml-4.5 w-5 stroke-2 stroke-amaranth fill-amaranth" %>
           <div class="floating-input-wrapper">
-            <input type="text" data-action="location-filters#search" name="leaving-from" class="floating-input" placeholder=" " />
+            <input type="text" data-location-filters-target="leavingFromInput" data-action="location-filters#searchFrom" name="leaving-from" class="floating-input" placeholder=" " />
             <label class="floating-label with-amaranth">Leaving from</label>
           </div>
         </div>
@@ -27,7 +23,7 @@
         <div data-popover-id-param="going-to-popover" data-action="click->popover#open" data-popover-offset-param="8" class="floating-input-container border border-gray-300 rounded-b-xl">
           <%= inline_svg_tag "location.svg", class: "ml-4.5 w-5 stroke-2 stroke-violet-blue fill-violet-blue" %>
           <div class="floating-input-wrapper">
-            <input type="text" name="going-to" class="floating-input" placeholder=" " />
+            <input type="text" data-location-filters-target="goingToInput" data-action="location-filters#searchTo" name="going-to" class="floating-input" placeholder=" " />
             <label class="floating-label with-violet-blue">Going to</label>
           </div>
         </div>
@@ -144,20 +140,6 @@
 </div>
   
 
-<template id="place">
-  <div class="flex items-center gap-x-3 px-5 py-2 cursor-pointer">
-    <svg-placeholder></svg-placeholder>
-    <div class="flex flex-col justify-between text-lg">
-      <p data-name></p>
-      <div class="flex items-center gap-x-1 text-sm tracking-wide">
-        <p data-type class="text-black-700"></p>
-        <span class="h-0.5 w-0.5 bg-black-700 rounded-full"></span>
-        <p data-province class="text-black-700"></p>
-        <p class="text-black-700">Zimbabwe</p>
-      </div>
-    </div>
-  </div>
-</template>
 
 
 
@@ -333,3 +315,18 @@
 
 
 </section>
+
+
+<template id="place">
+  <div data-location-filters-place-id-param="" data-action="click->location-filters#select" class="flex items-center gap-x-3 px-5 py-2 cursor-pointer">
+    <div class="flex flex-col justify-between text-lg">
+      <p data-name></p>
+      <div class="flex items-center gap-x-1 text-sm tracking-wide">
+        <p data-type class="text-black-700"></p>
+        <span class="h-0.5 w-0.5 bg-black-700 rounded-full"></span>
+        <p data-province class="text-black-700"></p>
+        <p class="text-black-700">Zimbabwe</p>
+      </div>
+    </div>
+  </div>
+</template>

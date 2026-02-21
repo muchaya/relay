@@ -45,10 +45,16 @@ export default class extends Controller {
   }
 
   closeOtherPopovers(event) {
-    this.popoverTargets.forEach( (popover)=> {
+    this.popoverTargets.forEach((popover)=> {
       if(popover.id != event.currentTarget.dataset.popoverIdParam) {
         popover.classList.add('hidden')
       }
     })
   }
+
+  closeAllPopovers() {
+    this.popoverTargets.forEach((popover)=> {
+      popover.classList.add('hidden')
+    }
+  )}
 }

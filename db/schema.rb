@@ -14,12 +14,26 @@ ActiveRecord::Schema[8.0].define(version: 2026_01_30_071834) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
+  create_table "places", force: :cascade do |t|
+    t.string "name"
+    t.string "locality"
+    t.string "province"
+    t.string "country", default: "Zimbabwe"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "routes", force: :cascade do |t|
-    t.string "from_city"
-    t.string "to_city"
+    t.bigint "from_place_id"
+    t.bigint "to_place_id"
     t.integer "distance_km"
     t.string "status", default: "active"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["from_place_id"], name: "index_routes_on_from_place_id"
+    t.index ["to_place_id"], name: "index_routes_on_to_place_id"
   end
+
+  add_foreign_key "routes", "places", column: "from_place_id"
+  add_foreign_key "routes", "places", column: "to_place_id"
 end
