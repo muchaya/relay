@@ -1,13 +1,61 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  name: MyString
-  locality: MyString
-  province: MyString
-  country: MyString
-
-two:
-  name: MyString
-  locality: MyString
-  province: MyString
-  country: MyString
+beitbridge:
+  name: Beitbridge
+  slug: beitbridge-zimbabwe
+  locality: Town
+  province: Matabeleland South
+  country: Zimbabwe
+bulawayo:
+  name: Bulawayo
+  slug: bulawayo-zimbabwe
+  locality: City
+  province: Bulawayo
+  country: Zimbabwe
+chiredzi:
+  name: Chiredzi
+  slug: chiredzi-zimbabwe
+  locality: Town
+  province: Masvingo
+  country: Zimbabwe
+gweru:
+  name: Gweru
+  slug: gweru-zimbabwe
+  locality: City
+  province: Midlands
+  country: Zimbabwe
+harare:
+  name: Harare
+  slug: harare-zimbabwe
+  locality: Capital city
+  province: Harare Metropolitan
+  country: Zimbabwe
+kariba:
+  name: Kariba
+  slug: kariba-zimbabwe
+  locality: Town
+  province: Mashonaland West
+  country: Zimbabwe
+masvingo:
+  name: Masvingo
+  slug: masvingo-zimbabwe
+  locality: City
+  province: Masvingo
+  country: Zimbabwe
+mutare:
+  name: Mutare
+  slug: mutare-zimbabwe
+  locality: City
+  province: Manicaland
+  country: Zimbabwe
+victoria_falls:
+  name: Victoria Falls
+  slug: victoria-falls-zimbabwe
+  locality: Town
+  province: Matabeleland North
+  country: Zimbabwe
+zvishavane:
+  name: Zvishavane
+  slug: zvishavane-zimbabwe
+  locality: Town
+  province: Midlands
+  country: Zimbabwe
+  

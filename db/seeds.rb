@@ -3,16 +3,10 @@
 # =====================
 
 places_data = {
-  mutare: {
-    name: "Mutare",
-    locality: "City",
-    province: "Manicaland",
-    country: "Zimbabwe"
-  },
-  harare: {
-    name: "Harare",
-    locality: "Capital city",
-    province: "Harare Metropolitan",
+  beitbridge: {
+    name: "Beitbridge",
+    locality: "Town",
+    province: "Matabeleland South",
     country: "Zimbabwe"
   },
   bulawayo: {
@@ -21,10 +15,22 @@ places_data = {
     province: "Bulawayo",
     country: "Zimbabwe"
   },
+  chiredzi: {
+    name: "Chiredzi",
+    locality: "Town",
+    province: "Masvingo",
+    country: "Zimbabwe"
+  },
   gweru: {
     name: "Gweru",
     locality: "City",
     province: "Midlands",
+    country: "Zimbabwe"
+  },
+  harare: {
+    name: "Harare",
+    locality: "Capital city",
+    province: "Harare Metropolitan",
     country: "Zimbabwe"
   },
   kariba: {
@@ -33,34 +39,28 @@ places_data = {
     province: "Mashonaland West",
     country: "Zimbabwe"
   },
-  zvishavane: {
-    name: "Zvishavane",
-    locality: "Town",
-    province: "Midlands",
-    country: "Zimbabwe"
-  },
-  beitbridge: {
-    name: "Beitbridge",
-    locality: "Town",
-    province: "Matabeleland South",
-    country: "Zimbabwe"
-  },
   masvingo: {
     name: "Masvingo",
     locality: "City",
     province: "Masvingo",
     country: "Zimbabwe"
   },
-  chiredzi: {
-    name: "Chiredzi",
-    locality: "Town",
-    province: "Masvingo",
+  mutare: {
+    name: "Mutare",
+    locality: "City",
+    province: "Manicaland",
     country: "Zimbabwe"
   },
   victoria_falls: {
     name: "Victoria Falls",
     locality: "Town",
     province: "Matabeleland North",
+    country: "Zimbabwe"
+  },
+  zvishavane: {
+    name: "Zvishavane",
+    locality: "Town",
+    province: "Midlands",
     country: "Zimbabwe"
   }
 }
