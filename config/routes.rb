@@ -14,4 +14,6 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   get "/demo", to: "static#demo"
+
+  resources :routes, only: [:index]
 end
