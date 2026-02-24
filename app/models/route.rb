@@ -2,6 +2,7 @@ class Route < ApplicationRecord
   belongs_to :from_place, class_name: "Place"
   belongs_to :to_place, class_name: "Place"
 
+  before_save :set_slugs
 
   def self.network
     {
@@ -11,4 +12,10 @@ class Route < ApplicationRecord
       end
     }
   end
+
+  private
+    def set_slugs
+      self.from_place_slug = from_place.slug 
+      self.to_place_slug = to_place.slug
+    end
 end

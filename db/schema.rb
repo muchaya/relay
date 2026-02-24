@@ -27,12 +27,16 @@ ActiveRecord::Schema[8.0].define(version: 2026_01_30_071834) do
   create_table "routes", force: :cascade do |t|
     t.bigint "from_place_id"
     t.bigint "to_place_id"
+    t.string "from_place_slug"
+    t.string "to_place_slug"
     t.integer "distance_km"
     t.string "status", default: "active"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["from_place_id"], name: "index_routes_on_from_place_id"
+    t.index ["from_place_slug"], name: "index_routes_on_from_place_slug"
     t.index ["to_place_id"], name: "index_routes_on_to_place_id"
+    t.index ["to_place_slug"], name: "index_routes_on_to_place_slug"
   end
 
   add_foreign_key "routes", "places", column: "from_place_id"
