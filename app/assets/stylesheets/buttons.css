@@ -1,0 +1,40 @@
+:root {
+  --button-radius: 0.5rem;
+  --button-neutral-color: #2a1510;
+  --primary-accent-color: #b95b46;
+  --utility-shadow-btn-inset: 0px 2px 4px 0px
+    color-mix(in srgb, white 56%, transparent)
+    inset;
+  --utility-shadow-btn-outset: 
+    0px 4px 8px 0px
+      color-mix(in srgb, #2a1510 6%, transparent),
+    0px 1px 2px 0px
+      color-mix(in srgb, #2a1510 36%, transparent);
+}
+
+
+.btn {
+  grid-column-gap: .375em;
+  grid-row-gap: .375em;
+  border-radius: var(--button-radius);
+  background-color: var(--primary-accent-color);
+  color: white;
+  text-align: center;
+  border-style: solid;
+  border-width: 1px;
+  border-color: color-mix(in srgb, var(--primary-accent-color)92%,var(--button-neutral-color));
+  justify-content: center;
+  align-items: center;
+  min-height: 2.5rem;
+  text-decoration: none;
+  transition-property: background-color,transform;
+  transition-duration: .3s,.3s;
+  transition-timing-function: cubic-bezier(.165,.84,.44,1),cubic-bezier(.165,.84,.44,1);
+  display: inline-flex;
+  }
+
+.btn-primary {
+  padding: 10px 16px;
+  font-size: 18px;
+  box-shadow: var(--utility-shadow-btn-inset), var(--utility-shadow-btn-outset);
+}

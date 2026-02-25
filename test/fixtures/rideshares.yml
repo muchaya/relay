@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  women_only: false
+  luggage_policy: MyString
+  smoking_allowed: false
+  pets_allowed: false
+  driver_notes: MyText
+
+two:
+  women_only: false
+  luggage_policy: MyString
+  smoking_allowed: false
+  pets_allowed: false
+  driver_notes: MyText

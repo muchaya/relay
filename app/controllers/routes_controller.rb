@@ -1,4 +1,6 @@
 class RoutesController < ApplicationController
+  allow_unauthenticated_access
+
   def index
     @from_place = Place.find_by(name: params[:from])
     @to_place = Place.find_by(name: params[:to])

@@ -4,33 +4,29 @@
         class="mt-16">
 
 <div class="flex items-start gap-x-28">
-  <%= form_with url: routes_path, method: :get, class: "w-2/5" do |form| %>
-    <div class="flex flex-col gap-y-1 mt-20 font-extrabold text-6xl tracking-tight mb-6">
+  <%= form_with url: routes_path, method: :get do |form| %>
+    <div class="flex flex-col gap-y-1 mt-12 font-extrabold text-6xl tracking-tight mb-8">
       <h1>Share a ride or book</h1>
       <h1 class="mt-1">a bus with <span class="tracking-tighter">Relay.</span></h1>
     </div>
 
     <div class="flex items-center">
-      <div class="w-full">
-        <div data-popover-id-param="leaving-from-popover" data-action="click->popover#open" data-popover-offset-param="0" class="floating-input-container border border-gray-300 rounded-t-xl border-b-0">
-          <%= inline_svg_tag "location.svg", class: "ml-4.5 w-5 stroke-2 stroke-amaranth fill-amaranth" %>
-          <div class="floating-input-wrapper">
-
-          <%= form.text_field :from, 
-              data: { 
-                location_filters_target: "leavingFromInput",
-                action: "focus->location-filters#leavingFromFocus input->location-filters#searchFrom"
-              },
-              class: "floating-input",
-              placeholder: " " %>
-            
-            <label class="floating-label with-amaranth">Leaving from</label>
+      <div class="flex py-4">
+        <div data-popover-id-param="leaving-from-popover" data-action="click->popover#open" data-popover-offset-param="12" class="floating-input-container w-72">
+          <div class="floating-input-wrapper bg-sheet border border-gray-300 rounded-l-full border-r-0">
+            <%= form.text_field :from, 
+                data: { 
+                  location_filters_target: "leavingFromInput",
+                  action: "focus->location-filters#leavingFromFocus input->location-filters#searchFrom"
+                },
+                class: "floating-input bg-sheet",
+                placeholder: " " %>
+            <label class="floating-label">Leaving from</label>
           </div>
         </div>
 
-        <div data-popover-id-param="going-to-popover" data-action="click->popover#open" data-popover-offset-param="8" class="floating-input-container border border-gray-300 rounded-b-xl">
-          <%= inline_svg_tag "location.svg", class: "ml-4.5 w-5 stroke-2 stroke-violet-blue fill-violet-blue" %>
-          <div class="floating-input-wrapper">
+        <div data-popover-id-param="going-to-popover" data-action="click->popover#open" data-popover-offset-param="8" class="floating-input-container w-72">
+          <div class="floating-input-wrapper bg-sheet w-2/5 border border-gray-300">
           <%= form.text_field :to,
               data: {
                 location_filters_target: "goingToInput",
@@ -38,21 +34,52 @@
               },
               class: "floating-input",
               placeholder: " " %>
-            
             <label class="floating-label with-violet-blue">Going to</label>
           </div>
         </div>
 
+        <div data-popover-id-param="date-popover" data-action="click->popover#open" data-popover-offset-param="8" class="floating-input-container w-48 border border-gray-300 border-l-0 bg-sheet">
+          <div class="ml-4">
+            <label class="block text-sm">Date</label>
+            <span class="block font-medium text-lg">Today</span>
+          <%= form.hidden_field :date,
+              data: {
+                location_filters_target: "dateInput",
+                action: "focus->location-filters#goingToFocus input->location-filters#searchTo"
+              },
+              class: "" %>
+          </div>
+        </div>
+
+        <div data-popover-id-param="date-popover" data-action="click->popover#open" data-popover-offset-param="8" class="floating-input-container w-48 border border-gray-300 border-l-0 border-r-0 bg-sheet">
+          <div class="ml-4">
+            <label class="block text-sm">Passengers</label>
+            <span class="block font-medium text-lg">1 Passenger</span>
+            <%= form.hidden_field :passengers,
+                data: {
+                  location_filters_target: "dateInput",
+                  action: "focus->location-filters#goingToFocus input->location-filters#searchTo"
+                },
+                class: "" %>
+          </div>
+        </div>
+        <div class="bg-sheet w-fit border border-gray-200 border-l-0 rounded-r-full pr-1 flex items-center">
+
+        <%= button_tag type: :submit, class: "cursor-pointer bg-slate-900 rounded-full p-5 block" do %>
+          <%= inline_svg_tag "search.svg" %>
+        <% end %>
+        </div>
       </div>
+
       <div class="w-10 h-10 -ml-16 z-1 hidden items-center justify-center border border-gray-300 rounded-full bg-white">
         <%= inline_svg_tag "swap_arrow.svg", class: "w-6 stroke-black stroke-2 block mx-auto" %>
       </div>
     </div> 
-    <%= form.submit "Book a seat", class: "bg-violet-blue text-white text-xl font-medium px-12 py-4 rounded-2xl mt-4" %>
 
-    <div id="leaving-from-popover" data-popover-target="popover" class="hidden tooltip bg-white border border-gray-200 rounded-b-2xl shadow-sm">
-      <h2 data-location-filters-target="leavingFromHint" class="px-5 pt-4 pb-2 font-medium text-[15px] text-black-600 tracking-wide"></h2>
-      <div class="search-results divide-y divide-gray-200"></div>
+
+    <div id="leaving-from-popover" data-popover-target="popover" class="hidden tooltip bg-white border border-gray-200 rounded-xl shadow-sm p-4">
+      <h2 data-location-filters-target="leavingFromHint" class="px-5 pt-4 pb-6 uppercase font-medium text-[13px] text-slate-600 tracking-wide"></h2>
+      <div class="search-results divide-y divide-gray-200 grid grid-cols-2 gap-3 gap-x-12"></div>
     </div> 
 
 
@@ -62,15 +89,12 @@
     </div> 
   <% end %>
 
-
-
-  <div class="w-1/2 flex items-center gap-x-3">
+  <div class="w-1/2 hidden items-center gap-x-3">
     <%= image_tag "covers/troy-wade.jpg", class: "rounded-2xl w-1/2 border-6 border-amaranth/10" %>
     <%= image_tag "covers/humphery.jpg", class: "rounded-2xl w-1/2 border-6 border-violet-blue/10" %>
   </div>
 </div>
   
-
 
   <section class="mb-28">
     <h1 class="mt-32 font-extrabold text-4xl tracking-tight">How are you travelling today?</h1>
@@ -244,14 +268,14 @@
 
 
 <template id="place">
-  <div data-location-filters-place-id-param="" data-action="click->location-filters#select" class="flex items-center gap-x-3 px-5 py-2 cursor-pointer">
+  <div data-location-filters-place-id-param="" data-action="click->location-filters#select" class="flex items-center gap-x-3 px-5 py-2 pr-12 cursor-pointer">
     <div class="flex flex-col justify-between text-lg">
       <p data-name></p>
-      <div class="flex items-center gap-x-1 text-sm tracking-wide">
-        <p data-type class="text-black-700"></p>
-        <span class="h-0.5 w-0.5 bg-black-700 rounded-full"></span>
-        <p data-province class="text-black-700"></p>
-        <p class="text-black-700">Zimbabwe</p>
+      <div class="flex items-center gap-x-1 text-sm tracking-wide text-[#4f5e6a]">
+        <p data-type class=""></p>
+        <span class="h-0.5 w-0.5 rounded-full"></span>
+        <p data-province class=""></p>
+        <p class="">Zimbabwe</p>
       </div>
     </div>
   </div>

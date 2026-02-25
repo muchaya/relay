@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  capacity: 1
+  luggage_policy: MyString
+  operator_notes: MyText
+
+two:
+  capacity: 1
+  luggage_policy: MyString
+  operator_notes: MyText

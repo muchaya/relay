@@ -10,7 +10,7 @@
 }
 .floating-input-container {
   position: relative;
-  height: 60px; /* fix container height */
+  height: 88px; /* fix container height */
   display: flex;
   align-items: center;
   gap: 8px;
@@ -30,25 +30,25 @@
 
 .floating-input {
   width: 100%;
-  height: 100%;
+  height: 60px;
   font-size: 20px;
   color: var(--text-color);
   outline: none;
-  padding: 0 12px;
+  margin: 0 36px;
   box-sizing: border-box;
   transition: transform 0.2s ease;
 }
 
 .floating-input:placeholder-shown, .floating-input {
-  transform: translateY(8px); /* adjust downwards */
+  transform: translateY(20px);
 }
 
 
 .floating-label {
   position: absolute;
-  left: 12px;
-  top: 16px;
-  font-size: 16px;
+  left: 36px;
+  top: 30px;
+  font-size: 20px;
   color: var(--placeholder-color);
   pointer-events: none;
   transition: transform 0.2s ease, font-size 0.2s ease, color 0.2s ease;
@@ -58,25 +58,10 @@
 
 .floating-input:focus + .floating-label,
 .floating-input:not(:placeholder-shown) + .floating-label {
-  transform: translateY(-12px) scale(0.8);
+  transform: translateY(-12px) scale(0.7);
   color: var(--primary-color);
   font-weight: medium;
 }
-
-.floating-input:focus + .floating-label.with-violet-blue,
-.floating-input:not(:placeholder-shown) + .floating-label.with-violet-blue {
-  transform: translateY(-12px) scale(0.8);
-  color: var(--color-violet-blue); 
-}
-
-.floating-input:focus + .floating-label.with-amaranth,
-.floating-input:not(:placeholder-shown) + .floating-label.with-amaranth {
-  transform: translateY(-12px) scale(0.8);
-  color: var(--color-amaranth); 
-}
-
-
-
 
 .floating-input::placeholder {
   color: transparent;

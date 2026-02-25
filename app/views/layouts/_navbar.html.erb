@@ -1,7 +1,7 @@
-<nav class="border-b border-gray-300 py-1 px-12">
+<nav class="py-3 px-12">
   <div class="max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto">
-    <%= link_to root_path class: "block" do %>
-      <span class="text-[40px] tracking-tighter font-bold text-amaranth">Relay.</span>
+    <%= link_to root_path, class: "block" do %>
+      <span class="text-[36px] tracking-tighter font-bold ">Relay.</span>
     <% end %>
 
     <ul class="flex items-center gap-x-6 text-lg">
@@ -10,8 +10,8 @@
       <li><%= link_to "Log in", "", class: "block rounded-sm" %></li>
       <li><%= link_to "Sign up", "", class: "block rounded-sm" %></li>
       <li>
-       <button class="bg-violet-blue text-white text-xl font-medium px-8 py-3 rounded-full">
-          Book a seat
+       <button class="btn btn-primary">
+          Try booking a seat
         </button>
       </li>
     </ul>
