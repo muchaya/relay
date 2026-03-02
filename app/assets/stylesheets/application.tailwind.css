@@ -1,6 +1,8 @@
 @import "./fonts.css";
 @import "./buttons";
+@import "./forms/checkbox.css";
 @import "./forms/floating_inputs.css";
+@import "./forms/radio_button.css";
 @import "./forms/toggle_switch.css";
 @import "./miscellaneous/itinerary.css";
 @import "air-datepicker/air-datepicker.css";
@@ -11,6 +13,7 @@
   --color-amaranth: #c93684;
   --color-alice-blue: rgba(0, 178, 255, 0.063);
   --color-charcoal-blue: rgb(33, 40, 49);
+  --color-beige-pale: rgb(250, 249, 249);
   --color-black-100: #111;
   --color-black-200: #222;
   --color-black-300: #333;
@@ -18,15 +21,20 @@
   --color-black-600: #667;
   --color-black-700: #777;
   --color-black-800: #888;
-  --color-blue: rgb(35, 101, 215);
+  --color-blue: #007aff;
   --color-blue-accent: rgb(5, 178, 252);
   --color-blue-pale: rgb(211, 242, 251);
+  --color-blue-desaturated: rgb(64, 81, 104);
   --color-charcoal: rgb(51, 51, 51);
+  --color-gold: rgb(134, 109, 80);
+  --color-golden-beige: rgb(173, 143, 104);
   --color-yellow: rgb(249, 166, 0);
   --color-emerald: #50C878;
   --color-grayish-blue: rgb(33, 40, 49);
+  --color-gray-neutral: rgb(84,84,84);
   --color-gray-pebble: rgb(214, 212, 204);
   --color-green: #147d55;
+  --color-maroon: rgb(187, 59, 128);
   --color-orange-salmon: rgb(185, 91, 70);
   --color-off-white: rgb(250, 251, 253);
   --color-old-sheet: #f8f7f5;

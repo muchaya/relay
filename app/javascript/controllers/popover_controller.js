@@ -27,6 +27,7 @@ export default class extends Controller {
     popover.classList.remove("hidden")
 
     Object.assign(popover.style, {
+      width: `${referenceRect.width}px`,
       left: left,
       top: top
     })

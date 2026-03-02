@@ -10,7 +10,7 @@
 }
 .floating-input-container {
   position: relative;
-  height: 88px; /* fix container height */
+  height: 64px; /* fix container height */
   display: flex;
   align-items: center;
   gap: 8px;
@@ -30,24 +30,25 @@
 
 .floating-input {
   width: 100%;
-  height: 60px;
+  height: 100%;
   font-size: 20px;
   color: var(--text-color);
   outline: none;
-  margin: 0 36px;
+  margin: 0 12px;
   box-sizing: border-box;
   transition: transform 0.2s ease;
 }
 
 .floating-input:placeholder-shown, .floating-input {
-  transform: translateY(20px);
+  transform: translateY(12px);
+  margin-top: auto;
+  margin-bottom: auto;
 }
-
 
 .floating-label {
   position: absolute;
-  left: 36px;
-  top: 30px;
+  left: 12px;
+  top: 16px;
   font-size: 20px;
   color: var(--placeholder-color);
   pointer-events: none;
@@ -58,7 +59,7 @@
 
 .floating-input:focus + .floating-label,
 .floating-input:not(:placeholder-shown) + .floating-label {
-  transform: translateY(-12px) scale(0.7);
+  transform: translateY(-6px) scale(0.6);
   color: var(--primary-color);
   font-weight: medium;
 }

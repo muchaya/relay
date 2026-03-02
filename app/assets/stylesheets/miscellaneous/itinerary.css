@@ -1,5 +1,9 @@
 .itinerary-line {
-  @apply w-[72] border-[2] relative;
+  @apply w-[72] border-[2] border-blue/50 relative;
+}
+
+.itinerary-line-night {
+  @apply border-zinc-500!
 }
 
 .itinerary-line:first-of-type::before {
@@ -11,7 +15,7 @@
   height: 12px;
   transform: translateY(-50%);
   background-color: white;
-  border: 2px solid; 
+  border: 2px solid color-mix(in oklab, var(--color-blue) /* #007aff */ 50%, transparent); 
   border-radius: 50%;
 }
 
@@ -24,6 +28,10 @@
   height: 12px;
   transform: translateY(-50%);
   background-color: white;
-  border: 2px solid; 
+  border: 2px solid color-mix(in oklab, var(--color-blue) /* #007aff */ 50%, transparent); 
   border-radius: 50%;
+}
+
+.itinerary-line-night:first-of-type::before, .itinerary-line-night:last-of-type::after {
+  @apply border-zinc-500! bg-[#323055]!
 }
