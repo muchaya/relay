@@ -10,32 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2026_02_24_193527) do
+ActiveRecord::Schema[8.0].define(version: 2026_02_24_191843) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
-
-  create_table "buses", force: :cascade do |t|
-    t.integer "capacity"
-    t.string "luggage_policy"
-    t.text "operator_notes"
-    t.bigint "trip_id"
-    t.bigint "operator_id"
-    t.bigint "vehicle_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["operator_id"], name: "index_buses_on_operator_id"
-    t.index ["trip_id"], name: "index_buses_on_trip_id"
-    t.index ["vehicle_id"], name: "index_buses_on_vehicle_id"
-  end
-
-  create_table "operators", force: :cascade do |t|
-    t.string "name"
-    t.string "phone_number"
-    t.string "email"
-    t.string "verified"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "places", force: :cascade do |t|
     t.string "name"
@@ -64,8 +41,7 @@ ActiveRecord::Schema[8.0].define(version: 2026_02_24_193527) do
     t.string "from_place_slug"
     t.string "to_place_slug"
     t.integer "distance_km"
-    t.integer "minutes_by_bus"
-    t.integer "minutes_by_rideshare"
+    t.integer "time_minutes"
     t.integer "tollgates"
     t.string "status", default: "active"
     t.datetime "created_at", null: false
@@ -112,13 +88,12 @@ ActiveRecord::Schema[8.0].define(version: 2026_02_24_193527) do
     t.string "color"
     t.string "number_plate"
     t.string "vehicle_type"
+    t.bigint "owner_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["owner_id"], name: "index_vehicles_on_owner_id"
   end
 
-  add_foreign_key "buses", "operators"
-  add_foreign_key "buses", "trips"
-  add_foreign_key "buses", "vehicles"
   add_foreign_key "routes", "places", column: "from_place_id"
   add_foreign_key "routes", "places", column: "to_place_id"
   add_foreign_key "sessions", "users"
