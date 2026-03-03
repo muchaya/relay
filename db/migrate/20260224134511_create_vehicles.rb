@@ -5,7 +5,7 @@ class CreateVehicles < ActiveRecord::Migration[8.0]
       t.string :color
       t.string :number_plate
       t.string :vehicle_type
-
+      t.belongs_to :owner
       t.timestamps
     end
   end

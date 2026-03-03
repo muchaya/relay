@@ -6,8 +6,7 @@ class CreateRoutes < ActiveRecord::Migration[8.0]
       t.string :from_place_slug, index: true
       t.string :to_place_slug, index: true
       t.integer :distance_km
-      t.integer :minutes_by_bus
-      t.integer :minutes_by_rideshare
+      t.integer :time_minutes
       t.integer :tollgates
       t.string :status, default: "active"
 
