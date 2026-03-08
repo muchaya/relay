@@ -7,6 +7,9 @@ import { application } from "./application"
 import DatepickerController from "./datepicker_controller"
 application.register("datepicker", DatepickerController)
 
+import DayTabsController from "./day_tabs_controller"
+application.register("day-tabs", DayTabsController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
@@ -15,3 +18,6 @@ application.register("location-filters", LocationFiltersController)
 
 import PopoverController from "./popover_controller"
 application.register("popover", PopoverController)
+
+import TripFiltersController from "./trip_filters_controller"
+application.register("trip-filters", TripFiltersController)

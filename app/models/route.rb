@@ -2,6 +2,8 @@ class Route < ApplicationRecord
   belongs_to :from_place, class_name: "Place"
   belongs_to :to_place, class_name: "Place"
 
+  has_many :trips
+
   before_save :set_slugs
 
   def self.network

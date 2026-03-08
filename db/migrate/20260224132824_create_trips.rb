@@ -5,9 +5,9 @@ class CreateTrips < ActiveRecord::Migration[8.0]
       t.decimal  :price, precision: 8, scale: 2, null: false
       t.integer :seat_capacity, null: false
       t.boolean :women_only, default: false, null: false
+      t.boolean :instant_booking, default: false, null: false
       t.string  :luggage_policy
       t.boolean :smoking_allowed, default: false, null: false
-      t.boolean :pets_allowed, default: false, null: false
       t.text :driver_notes
       t.string :status, default: "active", null: false
 

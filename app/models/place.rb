@@ -7,6 +7,6 @@ class Place < ApplicationRecord
 
   private
     def set_slug
-      self.slug = "#{name}-#{country}".parameterize
+      self.slug = "#{name}".parameterize
     end
 end

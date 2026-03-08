@@ -1,0 +1,13 @@
+tendai = find_or_create_user "Tendai Moyo", "male"
+sithembile = find_or_create_user "Sithembile Dube", "female"
+craig = find_or_create_user "Craig Whitehead", "male"
+rudo = find_or_create_user "Rudo Chikowore", "female"
+nkosana = find_or_create_user "Nkosana Ncube", "male"
+melissa = find_or_create_user "Melissa van der Berg", "female"
+steven = find_or_create_user "Steven Makoni", "male"
+
+find_or_create_vehicle tendai, "Honda Fit", "hatchback", "silver"
+find_or_create_vehicle sithembile, "Toyota Corolla", "sedan", "white"
+find_or_create_vehicle craig, "Mazda Demio", "hatchback", "blue"
+find_or_create_vehicle rudo, "Toyota Vitz", "hatchback", "red"
+find_or_create_vehicle nkosana, "Toyota Wish", "wagon", "grey"

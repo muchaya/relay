@@ -5,6 +5,7 @@
 
 <div class="flex items-start gap-x-28">
   <%= form_with url: routes_path, method: :get, class: "w-1/2" do |form| %>
+    <%= form.hidden_field :date, value: Date.today %>
 
   <section class="">
     <div class="flex flex-col gap-y-1 mt-12 font-extrabold text-6xl tracking-tight mb-6">

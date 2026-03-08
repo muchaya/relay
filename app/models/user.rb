@@ -1,5 +1,7 @@
 class User < ApplicationRecord
   has_secure_password
+
+  has_one_attached :avatar
   has_many :sessions, dependent: :destroy
   has_many :bookings, foreign_key: :passenger_id, dependent: :destroy
   has_many :trips, through: :bookings
@@ -11,4 +13,6 @@ class User < ApplicationRecord
 
 
   normalizes :email_address, with: ->(e) { e.strip.downcase }
+
+  scope :verified_drivers, -> { where(verified: true) }
 end
