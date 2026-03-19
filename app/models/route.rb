@@ -4,6 +4,8 @@ class Route < ApplicationRecord
 
   has_many :trips
 
+  scope :active, -> { where(status: :active )}
+
   before_save :set_slugs
 
   def self.network

@@ -1,65 +1,67 @@
  <div class="flex flex-col gap-y-10 mt-6">
   <% @trips.each do |trip| %>
-    <div class="<%= trip.theme[:bg_color_class] %> py-3 border border-zinc-200/60 rounded-2xl cursor-pointer shadow-sm shadow-gray-200">
-      <div class="flex items-start justify-between border-b <%= trip.theme[:divider_class] %> pt-1 pb-4 px-6">
-        <div class="flex items-center gap-x-2 w-1/3">
-          <div class="h-11.5 w-11.5 border-[1.5px] <%= trip.theme[:image_ring_color_class] %> rounded-full flex items-center justify-center">
-            <%= image_tag trip.driver.avatar, class: "mx-auto block object-cover h-10 w-10 rounded-full bg-gray-300 opacity-90" %>
-          </div>
-          <div class="">
-            <div class="flex items-center gap-x-1">
-              <span class="block mt-1 font-bold text-[20px] <%= trip.theme[:heading_color_class] %>"><%= trip.driver.fullname %></span>
-              <% if trip.driver.verified? %>
-                <%= inline_svg_tag "verified.svg", class: "h-5 w-5 fill-blue stroke-white stroke-1.5 mt-1"%>
-              <% end %>  
+    <%= link_to trip_path(trip), data: { turbo_frame: "_top" } do %>
+      <div class="<%= trip.theme[:bg_color_class] %> <%= trip.theme[:border_color_class] %> py-3 border rounded-2xl cursor-pointer">
+        <div class="flex items-start justify-between border-b <%= trip.theme[:divider_class] %> pt-1 pb-4 px-6">
+          <div class="flex items-center gap-x-2 w-1/3">
+            <div class="h-11.5 w-11.5 border-[1.5px] <%= trip.theme[:image_ring_color_class] %> rounded-full flex items-center justify-center">
+              <%= image_tag trip.driver.avatar, class: "mx-auto block object-cover h-10 w-10 rounded-full bg-gray-300 opacity-90" %>
             </div>
-            
-            
-            
-            <span class="block -mt-1 text-[13px] <%= trip.theme[:text_color ]%>"><%= rand(2..9) %> trips driven</span>
+            <div class="">
+              <div class="flex items-center gap-x-1">
+                <span class="block mt-1 font-bold text-[20px] <%= trip.theme[:heading_color_class] %>"><%= trip.driver.fullname %></span>
+                <% if trip.driver.verified? %>
+                  <%= inline_svg_tag "verified.svg", class: "h-5 w-5 fill-blue stroke-white stroke-1.5 mt-1"%>
+                <% end %>  
+              </div>
+              
+              
+              
+              <span class="block -mt-1 text-[13px] <%= trip.theme[:text_color ]%>"><%= rand(2..9) %> trips driven</span>
+            </div>
           </div>
-        </div>
-        
-        <div class="flex items-center gap-x-2 w-2/3 <%= trip.theme[:text_color ]%>">
-          <div class="flex flex-col ml-auto">
-            <div class="flex items-center gap-x-2">
-              <p class="font-bold text-[14px] -mt-0.5"><%= trip.departs_at %></p>
-              <div class="flex items-center">
-                <div class="<%= trip.theme[:itinerary_classes] %>"></div>
-                <span class="mx-2"><%= trip.duration_in_hours %></span>
-                <%= inline_svg_tag "#{trip.theme[:icon]}", class: "#{trip.theme[:icon_classes]}" %>
-                <div class="<%= trip.theme[:itinerary_classes] %>"></div>
+          
+          <div class="flex items-center gap-x-2 w-2/3 <%= trip.theme[:text_color ]%>">
+            <div class="flex flex-col ml-auto">
+              <div class="flex items-center gap-x-2">
+                <p class="font-bold text-[14px] -mt-0.5"><%= trip.departs_at %></p>
+                <div class="flex items-center">
+                  <div class="<%= trip.theme[:itinerary_classes] %>"></div>
+                  <span class="mx-2"><%= trip.duration_in_hours %></span>
+                  <%= inline_svg_tag "#{trip.theme[:icon]}", class: "#{trip.theme[:icon_classes]}" %>
+                  <div class="<%= trip.theme[:itinerary_classes] %>"></div>
+                </div>
+              </div>
+              <div class="-mt-1.5">
+                <span class="text-[15px] font-medium"><%= @route.from_place_slug.capitalize %></span>
               </div>
             </div>
-            <div class="-mt-1.5">
-              <span class="text-[15px] font-medium"><%= @route.from_place_slug.capitalize %></span>
+            <div class="-mt-0.5">
+              <span class="font-bold text-[14px] block"><%= trip.arrives_at %></span>
+              <span class="text-[15px] font-medium block -mt-1"><%= @route.to_place_slug.capitalize %></span>
             </div>
+            <h2 class="font-bold text-4xl w-12 ml-auto <%= trip.theme[:heading_color_class]%>">$<%= trip.price.to_i %></h2>
           </div>
-          <div class="-mt-0.5">
-            <span class="font-bold text-[14px] block"><%= trip.arrives_at %></span>
-            <span class="text-[15px] font-medium block -mt-1"><%= @route.to_place_slug.capitalize %></span>
-          </div>
-          <h2 class="font-bold text-3xl w-12 ml-auto <%= trip.theme[:heading_color_class]%>">$<%= trip.price.to_i %></h2>
         </div>
-      </div>
 
-      <div class="px-6 pt-5 pb-2 flex items-center gap-x-8 text-[15px] <%= trip.theme[:icon_text_class]%>">
-        <div class="flex items-center gap-x-2">
-          <%= inline_svg_tag "car_ultra_compact.svg", class: "w-5 h-5 stroke-2 #{trip.theme[:icon_stroke_class]} block" %>
-          <span class=""><%= trip.vehicle.model %></span>
-        </div>
-        <% if trip.women_only? %>
-          <div class="flex items-center gap-x-1">
-            <%= inline_svg_tag "#{trip.theme[:women_only_icon]}", class: "w-6 h-6 fill-blue stroke-[2.4] fill-none"%>
-            <span class="block">Women Only</span>
+        <div class="px-6 pt-5 pb-2 flex items-center gap-x-8 text-[15px] <%= trip.theme[:icon_text_class]%>">
+          <div class="flex items-center gap-x-2">
+            <%= inline_svg_tag "car_ultra_compact.svg", class: "w-5 h-5 stroke-2 #{trip.theme[:icon_stroke_class]} block" %>
+            <span class=""><%= trip.vehicle.model %></span>
           </div>
-        <% end %>
-        <div class="flex items-center gap-x-1">
-          <%= inline_svg_tag "luggage.svg", class: "w-6 h-5 #{trip.theme[:icon_stroke_class]} stroke-[1.6] fill-none"%>
-          <span class="block"><%= trip.luggage_policy.titleize %> luggage allowed</span>
+          <% if trip.women_only? %>
+            <div class="flex items-center gap-x-1">
+              <%= inline_svg_tag "#{trip.theme[:women_only_icon]}", class: "w-6 h-6 fill-blue stroke-[2.4] fill-none"%>
+              <span class="block">Women Only</span>
+            </div>
+          <% end %>
+          <div class="flex items-center gap-x-1">
+            <%= inline_svg_tag "luggage.svg", class: "w-6 h-5 #{trip.theme[:icon_stroke_class]} stroke-[1.6] fill-none"%>
+            <span class="block"><%= trip.luggage_policy.titleize %> luggage allowed</span>
+          </div>
+          <p class="ml-auto text-[18px]">3 seats left</p>
         </div>
-        <p class="ml-auto text-[18px]">3 seats left</p>
       </div>
-    </div>
+    <% end %>  
   <% end %>
 </div>

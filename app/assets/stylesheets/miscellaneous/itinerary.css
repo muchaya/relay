@@ -14,7 +14,7 @@
   width: 12px;
   height: 12px;
   transform: translateY(-50%);
-  background-color: white;
+  background-color: rgb(229,237,255);
   border: 2px solid color-mix(in oklab, var(--color-blue) /* #007aff */ 50%, transparent); 
   border-radius: 50%;
 }
@@ -27,11 +27,46 @@
   width: 12px;
   height: 12px;
   transform: translateY(-50%);
-  background-color: white;
+  background-color: rgb(229,237,255);
   border: 2px solid color-mix(in oklab, var(--color-blue) /* #007aff */ 50%, transparent); 
   border-radius: 50%;
 }
 
 .itinerary-line-night:first-of-type::before, .itinerary-line-night:last-of-type::after {
   @apply border-zinc-500! bg-[#323055]!
+}
+
+.vertical-itinerary {
+
+}
+
+.vertical-itinerary {
+  height: 84px;
+  width: 1px;
+  border-right: 2px dotted rgb(178,201,255);
+  width: 2px;
+  position: relative;
+}
+.vertical-itinerary::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -100%);
+  content: "";
+  height: 12px;
+  width: 12px;
+  border: 2px solid rgb(178,201,255);
+  border-radius: 50%;
+}
+
+.vertical-itinerary::after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform: translate(-50%, 100%);
+  content: "";
+  height: 12px;
+  width: 12px;
+  border: 2px solid rgb(178,201,255);
+  border-radius: 50%;
 }

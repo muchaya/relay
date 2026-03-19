@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" color="#000000">
+<path d="M2 22H22" stroke-linecap="square"></path>
+<path d="M16 4H8V22H16V4Z" stroke-linecap="square"></path>
+<path d="M8 13L4 13V22H8V13Z" stroke-linecap="square"></path>
+<path d="M20 13H16V22H20V13Z" stroke-linecap="square"></path>
+<path d="M12 4L12 2" stroke-linecap="square"></path>
+<path d="M12 22L12 18" stroke-linecap="square"></path>
+<path d="M11 15H13M11 11.5H13M11 8L13 8" stroke-linecap="square"></path>
+</svg>

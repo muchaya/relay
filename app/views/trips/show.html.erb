@@ -1,0 +1,166 @@
+<section class="mt-6">
+  <div class="flex items-start gap-x-24">
+  <div class="w-5/8">
+    <div class="flex items-end gap-x-2 border-b border-gray-200 pb-4">
+      <h1 class="text-3xl">
+        <%= @trip.route.from_place.name %> to <%= @trip.route.to_place.name %>
+      </h1>
+    </div>
+
+    <div class="flex items-end justify-between gap-x-16 py-5 border-b border-gray-200">
+      <div class="">
+        <h3 class="text-lg font-medium ">Saturday, 20 March</h3>
+        <div class="flex items-center gap-x-2">
+          <%= inline_svg_tag "car_model.svg", class: "stroke-black-400 stroke-1 w-5 h-5 fill-none"%>
+          <h3 class="text-sm font-medium stroke-black">Honda Grace</h3>
+        </div>
+      </div> 
+
+      <div class="mt-0.5 flex items-center gap-x-2 <%= @trip.theme[:text_color ]%>">
+        <div class="flex flex-col">
+          <div class="flex items-center gap-x-2">
+            <p class="font-bold text-[14px] -mt-0.5"><%= @trip.departs_at %></p>
+            <div class="flex items-center">
+              <div class="<%= @trip.theme[:itinerary_classes] %>"></div>
+              <span class="mx-2"><%= @trip.duration_in_hours %></span>
+              <%= inline_svg_tag "#{@trip.theme[:icon]}", class: "#{@trip.theme[:icon_classes]}" %>
+              <div class="<%= @trip.theme[:itinerary_classes] %>"></div>
+            </div>
+          </div>
+          <div class="-mt-1.5">
+            <span class="text-[15px] font-medium"><%= @trip.route.from_place_slug.capitalize %></span>
+          </div>
+        </div>
+        <div class="-mt-0.5">
+          <span class="font-bold text-[14px] block"><%= @trip.arrives_at %></span>
+          <span class="text-[15px] font-medium block -mt-1"><%= @trip.route.to_place_slug.capitalize %></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="py-5 border-b border-gray-200 flex items-center justify-between">
+      <div class="flex items-center gap-x-6">
+        <div class="relative">
+          <div class="border border-gray-200 rounded-full">
+            <%= image_tag @trip.driver.avatar, class: "w-12 h-12 object-cover rounded-full z-10 relative"%>
+          </div>
+        </div>
+        <div class="flex items-center">
+          <div class="gap-x-3">
+            <div class="flex items-center gap-x-3">
+              <h2 class="text-xl font-medium"> Trip by <%= @trip.driver.fullname %></h2>
+            </div>
+            <p class="block text-gray text-[14px]">New driver on Relay</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex items-center gap-x-8 py-6 border-b border-gray-200">
+      <%= image_tag "lock.png", class: "w-12 h-12" %>
+      <p class="w-1/2 text-gray-neutral text-[14px]">
+        The driver's contact information and the vehicle's identity will only be shared after booking.
+        <span class="ml-1 text-blue decoration-[1.5px] decoration-blue underline underline-offset-2 ">Learn more</span>
+      </p>
+      
+    </div>
+
+    <h1 class="text-2xl pb-3 mt-8">What to expect</h1> 
+      
+    <div class="grid grid-cols-2 gap-y-8 gap-x-6 pt-6 pb-12 border-b border-gray-200">
+      <div class="grid grid-cols-[48px_1fr] gap-x-6 ">
+        <%= inline_svg_tag "seats.svg", class: "stroke-black-500 w-12 h-12 stroke-[0.2px] block" %>
+        <div>
+          <p class="text-lg">4 seats capacity</p>
+          <p class="text-[14px] text-gray">Women only allowed on this trip. Maximum of 3 passengers at the back seat.</p>
+        </div>
+      </div>
+      <div class="grid grid-cols-[48px_1fr] gap-x-6">
+        <%= inline_svg_tag "luggage.svg", class: "stroke-black-200 w-8 h-8 stroke-[1.6px] block mx-auto" %>
+        <div>
+          <p class="text-lg">Small luggage allowed</p>
+          <p class="text-[14px] text-gray">Upto 20kg of legal goods allowed on this ride.</p>
+        </div>
+      </div>
+      <div class="grid grid-cols-[48px_1fr] gap-x-6">
+        <%= inline_svg_tag "music_note.svg", class: "stroke-black-200 w-8 h-8 stroke-[1.7] block mx-auto" %>
+        <div>
+          <p class="text-lg">Music on board</p>
+          <p class="text-[14px] text-gray">Tunes at a comfortable volume - never too loud.</p>
+        </div>
+      </div>
+      <div class="grid grid-cols-[48px_1fr] gap-x-6">
+        <%= inline_svg_tag "chat.svg", class: "stroke-black-200 w-8 h-8 stroke-[1.7] block mx-auto" %>
+        <div>
+          <p class="text-lg">Friendly conversation.</p>
+          <p class="text-[14px] text-gray">The driver is happy to chat during the trip if passengers feel like it.</p>
+        </div>
+      </div>
+      <div class="grid grid-cols-[48px_1fr] gap-x-6">
+        <%= inline_svg_tag "cancel_calendar.svg", class: "stroke-black-500 w-8 h-8 stroke-[0.2px] block mx-auto" %>
+        <div>
+          <p class="text-lg">Flexible cancellation</p>
+          <p class="text-[14px] text-gray">Cancel up to 3 hours before the journey.</p>
+        </div>
+      </div>
+    </div>
+  </div> 
+  <div class="w-3/8">
+    <div class="shadow-[0px_6px_16px_rgba(0,0,0,0.12)] border border-gray-200 rounded-xl p-6">
+      <div class="">
+        <h1 class="text-4xl pb-4 text-slate-800 border-b border-gray-200"><b class="tracking-tight">$10.50</b> <span class="text-lg">per seat</span></h1> 
+
+        <div class="border-b border-gray-200 flex items-center gap-x-3 py-4">
+          <%= inline_svg_tag "coins.svg", class: "w-6 h-6 stroke-black stroke-2"%>
+          <div class="">
+            <h4 class="text-base font-medium">Pay on relay</h4>
+            <p class="text-[14px]  text-black-700">Pay 50 cents to secure your booking.</p>
+          </div>
+        </div>
+
+        <div class="border-b border-gray-200 flex items-center gap-x-3 py-4">
+          <%= inline_svg_tag "cash.svg", class: "w-6 h-6 stroke-black stroke-2 fill-none"%>
+          <div class="">
+            <h4 class="text-base font-medium">Pay in the car.</h4>
+            <p class="text-[14px]  text-black-700">Pay $10.00 to the driver in the car or during the trip.</p>
+          </div>
+        </div>
+      </div>
+
+      <div data-controller="dropdown-select" class="mt-6 mb-12">
+        <h2 class="text-sm text-gray-neutral mb-2">Select seats</h2>
+        <input type="hidden" name="booking[passengers]" data-dropdown-select-target="input" value="seats">
+
+        <div data-dropdown-select-target="selected" data-action="click->dropdown-select#toggle" class="flex justify-between items-center border border-white-coffee w-full rounded-lg p-3 cursor-pointer">
+          <div class="flex justify-between w-full mr-4">
+            <span data-dropdown-select-target="label" class="font-semibold block">1 seat</span>
+            <span data-dropdown-select-target="amount" class="text-gray-500 block">$10.50</span>
+          </div>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.25a.75.75 0 01-1.06 0L5.21 8.27a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+          </svg>
+        </div>
+
+        <ul data-dropdown-select-target="options" class="hidden z-10 mt-2 w-full border border-white-coffee rounded-lg">
+          <li data-action="click->dropdown-select#select click->date-picker#changeType" data-date-picker-type-param="hourly" data-value="hourly" data-label="1 seat" data-amount="$10.50" class="border-b border-white-coffee px-4 py-3 flex justify-between cursor-pointer">
+            <span class="block">1 seat</span>
+            <span class="block">$10.50</span>
+          </li>
+          <li data-action="click->dropdown-select#select click->date-picker#changeType" data-date-picker-type-param="daily" data-value="daily" data-label="2 seats" data-amount="$21.00" class="bg-darker-sheet px-4 py-3 flex justify-between cursor-pointer">
+            <span class="block">2 seats</span>
+            <span class="block">$21.00</span>
+          </li>
+        </ul>
+      </div>
+ 
+      <div class="pb-4">
+        <button class="text-white block mt-6 py-3.5 px-4 bg-blue rounded-full w-full text-lg font-medium">Reserve your seat</button>
+        <p class="text-sm text-center mt-4">Only $0.50 charged now.</p>
+      </div>
+
+
+  </div>
+    
+  </div>
+
+ 

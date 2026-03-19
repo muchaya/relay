@@ -52,10 +52,10 @@ class Trip < ApplicationRecord
 
   private
     DAY_THEME = {
-      bg_color_class: "#888",
-      border_color_class: "border-zinc-200/60",
-      divider_class: "border-zinc-200/60",
-      heading_color_class: "text-black-200", 
+      bg_color_class: "bg-white",
+      border_color_class: "border-[#d3d3d3]",
+      divider_class: "border-[#d3d3d3]",
+      heading_color_class: "text-slate-800/90", 
       icon: "sun.svg",
       icon_stroke_class: "stroke-gray-neutral",
       icon_text_class: "text-gray-neutral",
@@ -68,14 +68,14 @@ class Trip < ApplicationRecord
 
     NIGHT_THEME = {
       bg_color_class: "bg-[#323055]",
-      border_color_class: "border-zinc-200/60",
+      border_color_class: "border-black-100/30",
       heading_color_class: "text-zinc-300",
       divider_class: "border-black",
       icon: "moon.svg",
       icon_stroke_class: "stroke-zinc-400",
       icon_text_class: "text-zinc-400",
       icon_classes: "w-4 stroke-yellow-600 fill-yellow-600 mr-2",
-      image_ring_color_class: "border-zinc-500 ",      
+      image_ring_color_class: "border-zinc-500",      
       itinerary_classes: "itinerary-line itinerary-line-night",
       text_color: "text-zinc-400",
     women_only_icon: "butterfly_night.svg"

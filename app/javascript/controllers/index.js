@@ -10,6 +10,9 @@ application.register("datepicker", DatepickerController)
 import DayTabsController from "./day_tabs_controller"
 application.register("day-tabs", DayTabsController)
 
+import DropdownSelectController from "./dropdown_select_controller"
+application.register("dropdown-select", DropdownSelectController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 

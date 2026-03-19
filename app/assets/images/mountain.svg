@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 24 24" fill="none">
+  <!-- Back mountain (left, taller) -->
+  <path d="M2 20L7 6C7.8 3.5 8.4 2 9.5 2C10.6 2 11.3 3.5 12.2 6L15 13"  stroke-linejoin="round"/>
+  <!-- Front mountain (right, dominant) -->
+  <path d="M4 20H22L17.4 12.7C15.9 10.2 15.1 9 14 9C12.9 9 12.1 10.2 10.6 12.7L7.5 18"stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

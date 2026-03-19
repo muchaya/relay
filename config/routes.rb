@@ -20,4 +20,5 @@ Rails.application.routes.draw do
   get "/demo", to: "static#demo"
 
   resources :routes, only: [:index]
+  resources :trips, only: [:show]
 end

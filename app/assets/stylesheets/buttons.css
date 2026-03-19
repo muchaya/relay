@@ -1,28 +1,27 @@
 :root {
-  --button-radius: 19931998px;
-  --button-neutral-color: #333;
-  --primary-accent-color: #006AFF;
-  --secondary-accent-color: #E39A1F;
+  --button-radius: 8px;
+  --button-neutral-color: rgb(38, 27, 7);
+  --primary-accent-color: white;
+  --secondary-accent-color: #31f2bf;
+  --utility-shadow-button-inset: 0px 2px 4px 0px color-mix(in srgb, white 56%, transparent) inset;
+  --utility-shadow-button-outset: 0px 4px 8px 0px color-mix(in srgb, #261b07 6%, transparent), 0px 1px 2px 0px color-mix(in srgb, #261b07 36%, transparent);
 }
 
 .btn {
-  grid-column-gap: .375em;
-  grid-row-gap: .375em;
   border-radius: var(--button-radius);
   text-align: center;
   border-style: solid;
   border-width: 1px;
-  justify-content: center;
-  align-items: center;
   min-height: 2.5rem;
   text-decoration: none;
   display: inline-flex;
-  padding: 10px 24px;
   font-size: 18px;
+  box-shadow: var(--utility-shadow-button-inset), var(--utility-shadow-button-outset);
+  cursor: pointer;
   }
 
 .btn-primary {
-  color: #fff;
+  color: var(button-neutral-color);
   border-color: color-mix(in srgb, var(--primary-accent-color)92%,var(--button-neutral-color));
   background-color: var(--primary-accent-color);
 }

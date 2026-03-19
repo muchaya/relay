@@ -5,7 +5,26 @@ class Place < ApplicationRecord
 
   before_validation :set_slug
 
+  def icon
+    icon_name = ICONS.fetch(name.parameterize.underscore.to_sym)
+
+    "#{icon_name}.svg"
+  end
+
   private
+    ICONS = {
+      beitbridge:      "bridge",
+      bulawayo:        "city_v2",
+      chiredzi:        "city_v3",
+      gweru:           "gweru",
+      harare:          "city",
+      kariba:          "kariba",
+      masvingo:        "bricks",
+      mutare:          "mountain",
+      victoria_falls:  "tourist",
+      zvishavane:      "city_v3"
+    }.freeze
+
     def set_slug
       self.slug = "#{name}".parameterize
     end
