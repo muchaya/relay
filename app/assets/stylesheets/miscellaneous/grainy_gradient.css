@@ -1,0 +1,39 @@
+.bg-grainy-grad {
+  z-index: 0;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0%;
+  overflow: hidden;
+  }
+
+  .bg_tiles.cc-photo {
+    background-image: url('https://cdn.prod.website-files.com/683909604bbd11a23e6dd536/683dca14c4358027c59acbbf_blind-photo.svg');
+    background-position: 50% 0;
+    background-size: 3rem;
+  }
+
+  .bg_grain {
+    mix-blend-mode: overlay;
+    background-image: url(https://cdn.prod.website-files.com/683909604bbd11a23e6dd536/683dcb7e4f5bd0a37080370f_grain.webp);
+    background-position: 0 0;
+    background-size: 75px 75px;
+  }
+  
+  bg_tiles {
+    -webkit-backdrop-filter: blur(40px);
+    backdrop-filter: blur(40px)
+  }
+
+  .bg_gradient {
+    background-image: linear-gradient(180deg,#f8f7f5,transparent);
+  }
+
+  .u-img-cover {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0;
+  }

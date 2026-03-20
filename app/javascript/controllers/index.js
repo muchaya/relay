@@ -13,6 +13,9 @@ application.register("day-tabs", DayTabsController)
 import DropdownSelectController from "./dropdown_select_controller"
 application.register("dropdown-select", DropdownSelectController)
 
+import GrainyGradientController from "./grainy_gradient_controller"
+application.register("grainy-gradient", GrainyGradientController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 

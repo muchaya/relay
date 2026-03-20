@@ -1,0 +1,71 @@
+<%= form_with url: routes_path, method: :get, data: { popover_target: "filtersContainer" } do |form| %>
+  <%= form.hidden_field :date, value: Date.today %>
+  <div class="flex items-center">
+    <div class="flex items-center w-full bg-sheet border border-gray-300 rounded-full py-1">
+      <div data-popover-id-param="leaving-from-popover" data-action="click->popover#open" data-popover-offset-param="8" class="w-2/7 floating-input-container border-r border-gray-300">
+        <%= inline_svg_tag "location_v2.svg", class: "ml-4.5 w-5 stroke-1.5 stroke-black-300" %>
+        <div class="floating-input-wrapper ">
+          <input type="text" data-location-filters-target="leavingFromInput" data-action="focus->location-filters#leavingFromFocus input->location-filters#searchFrom" name="from" class="floating-input" placeholder=" " />
+          <label class="floating-label">Leaving from</label>
+        </div>
+      </div>
+
+      <div data-popover-id-param="going-to-popover" data-action="click->popover#open" data-popover-offset-param="8" class="w-2/7 floating-input-container border-r border-gray-300">
+        <%= inline_svg_tag "location_v2.svg", class: "ml-4.5 w-5 stroke-1.5 stroke-black-300" %>
+        <div class="floating-input-wrapper">
+          <input type="text" data-location-filters-target="goingToInput" data-action="focus->location-filters#goingToFocus input->location-filters#searchTo" name="to" class="floating-input" placeholder=" " />
+          <label class="floating-label">Going to</label>
+        </div>
+      </div>
+      <div class="w-2/7 py-5 ">
+        <div class="w-fit mx-auto flex items-center gap-x-4">
+          <div class="flex items-center">
+            <%= inline_svg_tag "users.svg", class: "w-5 block stroke-1.5 stroke-black-300" %>
+            <span class="block ml-2 mr-4 text-lg">Passengers</span>
+          </div>
+          <div class="flex items-center gap-x-8">
+            <button class="">
+              <%= inline_svg_tag "minus.svg", class: "w-4 block stroke-[1px] stroke-black-300" %>
+            </button>
+            <span class="block text-lg">1</span>
+            <button class="">
+              <%= inline_svg_tag "plus.svg", class: "w-5 h-5 block stroke-[1.6px] stroke-black-300" %>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="w-1/7">
+        <button class="bg-blue text-white font-medium mr-3 py-4 block px-10 text-lg rounded-full cursor-pointer ml-auto">
+          Search rides
+        </button>
+      </div>
+    </div>
+  </div> 
+
+  <div id="leaving-from-popover" data-popover-target="popover" class="hidden tooltip pb-10 px-6 bg-white border border-gray-200 rounded-2xl shadow-sm">
+    <h2 data-location-filters-target="leavingFromHint" class="px-5 pt-6 pb-4 font-medium text-[18px] text-slate-800"></h2>
+    <div class="search-results grid grid-cols-3 gap-x-6 divide-y divide-gray-200"></div>
+  </div> 
+
+  <div id="going-to-popover" data-popover-target="popover" class="hidden tooltip pb-10 px-6 bg-white border border-gray-200 rounded-2xl shadow-sm">
+    <h2 data-location-filters-target="goingToHint" class="px-5 pt-6 pb-4 font-medium text-[18px] text-slate-800"></h2>
+    <div class="search-results grid grid-cols-3 gap-x-6 divide-y divide-gray-200"></div>
+  </div> 
+<% end %>
+
+<template id="place">
+  <div data-location-filters-place-id-param="" data-action="click->location-filters#select" class="flex items-center gap-x-5 px-3 py-5 cursor-pointer">
+    <div class="w-8 h-8 bg-gray-100 flex items-center rounded-md">
+      <%= inline_svg_tag "location.svg", class: "w-5 stroke-2 stroke-gray-500 mx-auto" %>
+    </div>
+    <div class="flex flex-col justify-between text-lg">
+      <p data-name></p>
+      <div class="flex items-center gap-x-1 text-sm tracking-wide">
+        <p data-type class="text-black-700"></p>
+        <span class="h-0.5 w-0.5 bg-black-700 rounded-full"></span>
+        <p data-province class="text-black-700"></p>
+        <p class="text-black-700">Zimbabwe</p>
+      </div>
+    </div>
+  </div>
+</template>

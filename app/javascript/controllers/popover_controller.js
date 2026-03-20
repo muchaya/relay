@@ -8,28 +8,19 @@ export default class extends Controller {
 
   open(event) {
     this.closeOtherPopovers(event)
-
     const popoverId = event.params.id
-
-    const reference = event.currentTarget
-
     const popover = document.getElementById(popoverId)
-
     const container = this.filtersContainerTarget
-
-    const referenceRect = reference.getBoundingClientRect()
     const containerRect = container.getBoundingClientRect()
-
-    const left = referenceRect.left - containerRect.left
-
-    const top = `${referenceRect.bottom + window.scrollY + event.params.offset}px`
-
+  
+    const width = containerRect.width * 0.98
+    const left = containerRect.left + (containerRect.width - width) / 2
+  
     popover.classList.remove("hidden")
-
     Object.assign(popover.style, {
-      width: `${referenceRect.width}px`,
-      left: left,
-      top: top
+      width: `${width}px`,
+      left: `${left}px`,
+      top: `${containerRect.bottom + window.scrollY + event.params.offset}px`
     })
   }
 

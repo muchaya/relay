@@ -1,0 +1,43 @@
+<section data-controller="grainy-gradient" class="grainy-gradient mt-24 w-screen relative left-1/2 -translate-x-1/2 px-20 pb-12">
+  <div class="z-20 relative pt-12">
+    <h2 class="font-extrabold text-5xl tracking-tight">Where are you going?</h2>
+    <p class="text-black-700 text-xl mt-3">Pick your destination and route</p>
+
+    <div class="flex items-center justify-center gap-x-12 gap-y-6 mt-16 w-full">
+      <% Place.all.each do |place| %>
+        <button class="hover:border-b-4 pb-2 border-slate-700 flex flex-col justify-center cursor-pointer text-center text-lg font-medium w-[520] h-[96] group">
+          <%= inline_svg_tag place.icon, class: "w-8 h-8 block mx-auto stroke-[1.2] stroke-slate-700 mt-2 transition-all duration-200 group-hover:w-14 group-hover:h-14 group-hover:stroke-[1.4]" %>
+          <% if place.name == "Victoria Falls" %>
+            <span class="block text-center w-fit mx-auto mt-1 text-[19px] text-slate-700">Vic Falls</span>
+          <% else %>
+            <span class="block text-center w-fit mx-auto mt-1 text-[19px] text-slate-700"><%= place.name %></span>
+          <% end %>
+        </button>    
+      <% end %>
+    </div>
+
+    <div class="mt-16  bg-white w-fit rounded-xl">
+      <div class="px-6 py-4">
+        <h2 class="font-bold text-gray-700 mb-3 w-fit">Popular routes to Harare</h2>
+      </div>
+      <div class="text-xl flex items-center gap-x-12 px-6 pb-4">
+        <div>
+          <p>Bulawayo to <b class="font-bold">Harare</b></p>
+        </div>
+        <div class="">
+          <p>Beitbridge to <b class="font-bold">Harare</b></p>
+        </div>
+        <div class="">
+          <p>Masvingo to <b class="font-bold">Harare</b></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-grainy-grad opacity-100">
+    <img class="object-cover w-full h-full absolute" src="<%= asset_path('bluer_gradient.png') %>" loading="lazy" width="70" height="Auto" alt="" id="hero-landscape" style="filter: url('#filter-img');" />
+    <div class="bg_tiles cc-photo u-img-cover" style="transform: translate(0px, 0px); background-image: url('https://cdn.prod.website-files.com/683909604bbd11a23e6dd536/683dca14c4358027c59acbbf_blind-photo.svg');"></div>
+    <div class="bg_grain u-img-cover"></div>
+    <div class="bg_gradient u-img-cover"></div>
+  </div>
+</section>  

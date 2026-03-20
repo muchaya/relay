@@ -3,3 +3,117 @@ harare_bulawayo:
   to_place: bulawayo
   distance_km: 438
   status: active
+
+bulawayo_harare:
+  from_place: bulawayo
+  to_place: harare
+  distance_km: 438
+  status: active
+
+harare_mutare:
+  from_place: harare
+  to_place: mutare
+  distance_km: 263
+  status: active
+
+mutare_harare:
+  from_place: mutare
+  to_place: harare
+  distance_km: 263
+  status: active
+
+harare_masvingo:
+  from_place: harare
+  to_place: masvingo
+  distance_km: 292
+  status: active
+
+masvingo_harare:
+  from_place: masvingo
+  to_place: harare
+  distance_km: 292
+  status: active
+
+harare_gweru:
+  from_place: harare
+  to_place: gweru
+  distance_km: 274
+  status: active
+
+gweru_harare:
+  from_place: gweru
+  to_place: harare
+  distance_km: 274
+  status: active
+
+bulawayo_gweru:
+  from_place: bulawayo
+  to_place: gweru
+  distance_km: 164
+  status: active
+
+gweru_bulawayo:
+  from_place: gweru
+  to_place: bulawayo
+  distance_km: 164
+  status: active
+
+bulawayo_victoria_falls:
+  from_place: bulawayo
+  to_place: victoria_falls
+  distance_km: 440
+  status: active
+
+victoria_falls_bulawayo:
+  from_place: victoria_falls
+  to_place: bulawayo
+  distance_km: 440
+  status: active
+
+harare_kariba:
+  from_place: harare
+  to_place: kariba
+  distance_km: 365
+  status: active
+
+kariba_harare:
+  from_place: kariba
+  to_place: harare
+  distance_km: 365
+  status: active
+
+harare_beitbridge:
+  from_place: harare
+  to_place: beitbridge
+  distance_km: 571
+  status: active
+
+beitbridge_harare:
+  from_place: beitbridge
+  to_place: harare
+  distance_km: 571
+  status: active
+
+masvingo_beitbridge:
+  from_place: masvingo
+  to_place: beitbridge
+  distance_km: 200
+  status: active
+
+beitbridge_masvingo:
+  from_place: beitbridge
+  to_place: masvingo
+  distance_km: 200
+  status: active
+
+masvingo_chiredzi:
+  from_place: masvingo
+  to_place: chiredzi
+  distance_km: 150
+  status: active
+
+chiredzi_masvingo:
+  from_place: chiredzi
+  to_place: masvingo
+  distance_km: 150
+  status: active

@@ -52,7 +52,7 @@ class Trip < ApplicationRecord
 
   private
     DAY_THEME = {
-      bg_color_class: "bg-white",
+      bg_color_class: "bg-blue/5",
       border_color_class: "border-[#d3d3d3]",
       divider_class: "border-[#d3d3d3]",
       heading_color_class: "text-slate-800/90", 

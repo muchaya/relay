@@ -4,6 +4,7 @@
 @import "./forms/floating_inputs.css";
 @import "./forms/radio_button.css";
 @import "./forms/toggle_switch.css";
+@import "./miscellaneous/grainy_gradient.css";
 @import "./miscellaneous/itinerary.css";
 @import "air-datepicker/air-datepicker.css";
 @import "./overrides/air_datepicker.css";
@@ -56,6 +57,7 @@
 .tooltip {
   width: max-content;
   position: absolute;
+  z-index: 50;
 }
 
 .car-sliding {

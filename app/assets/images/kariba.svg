@@ -1,7 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-  <!-- Dam wall curved outward to the left like Kariba -->
-  <path d="M2 20V4C2 3.44772 2.44772 3 3 3H5.11075C5.61784 3 6.04465 3.37955 6.1039 3.88316C6.1039 3.88316 2 11.5 6.1039 20.1168C6.04465 20.6205 5.61784 21 5.11075 21H3C2.44772 21 2 20.5523 2 20Z"/>
-  <!-- Water waves -->
-  <path d="M22 9C21.4 8.5 20.8 8 19.5 8C17 8 17 10 14.5 10C11.9 10 12.1 8 9.5 8C8.57595 8 7.99344 8.2732 7.5 8.6177"/>
-  <path d="M22 15C21.4 14.5 20.8 14 19.5 14C17 14 17 16 14.5 16C11.9 16 12.1 14 9.5 14C8.86664 14 8.39374 14.1284 8 14.3201"/>
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" xmlns:xlink="http://www.w3.org/1999/xlink">
+<path d="M2 21.1932C2.68524 22.2443 3.57104 22.2443 4.27299 21.1932C6.52985 17.7408 8.67954 23.6764 10.273 21.2321C12.703 17.5694 14.4508 23.9218 16.273 21.1932C18.6492 17.5582 20.1295 23.5776 22 21.5842" stroke-linejoin="round"></path>
+<path d="M3.57267 17L2.00098 11H22.001C22.001 11 22.001 17 17.997 17" stroke-linejoin="round"></path>
+<path d="M18 11L13.5 5.99988H6V11" stroke-linejoin="round"></path>
+<path d="M10 6V2H7" stroke-linejoin="round"></path>
 </svg>

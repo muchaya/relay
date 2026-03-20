@@ -1,5 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" color="#000000">
-<path d="M6 8V21M18 8V21" stroke-linejoin="round"></path>
-<path d="M3 8H21M3 12H21" stroke-linejoin="round"></path>
-<path d="M10 8L10 12M14 8L14 12" stroke-linejoin="round"></path>
+<path d="M2 8C2.5 8 5 7.5 6 6C7 7.5 9 10 12 10C15 10 17 7.5 18 6C19 7.5 21.5 8 22 8" stroke-linejoin="round"></path>
+<path d="M6 4V20" stroke-linejoin="round"></path>
+<path d="M2 15H22" stroke-linejoin="round"></path>
+<path d="M18 4V20" stroke-linejoin="round"></path>
+<path d="M10 10V15" stroke-linejoin="round"></path>
+<path d="M14 10V15" stroke-linejoin="round"></path>
 </svg>

@@ -15,14 +15,14 @@ class Place < ApplicationRecord
     ICONS = {
       beitbridge:      "bridge",
       bulawayo:        "city_v2",
-      chiredzi:        "city_v3",
+      chiredzi:        "chiredzi",
       gweru:           "gweru",
       harare:          "city",
       kariba:          "kariba",
       masvingo:        "bricks",
       mutare:          "mountain",
       victoria_falls:  "tourist",
-      zvishavane:      "city_v3"
+      zvishavane:      "building"
     }.freeze
 
     def set_slug
