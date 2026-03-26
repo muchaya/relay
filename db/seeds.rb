@@ -15,7 +15,6 @@ def find_or_create_user(fullname, gender)
   name = fullname.split.first.downcase
 
   user = User.find_or_create_by(fullname:, gender:) do |user|
-    puts user.inspect
     user.email_address = email_from fullname
     user.phone_number = fake_phone_number
     user.identity_card_number = fake_identity_card_number

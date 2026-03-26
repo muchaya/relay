@@ -22,8 +22,17 @@ application.register("hello", HelloController)
 import LocationFiltersController from "./location_filters_controller"
 application.register("location-filters", LocationFiltersController)
 
+import ModalController from "./modal_controller"
+application.register("modal", ModalController)
+
+import PasswordToggleController from "./password_toggle_controller"
+application.register("password-toggle", PasswordToggleController)
+
 import PopoverController from "./popover_controller"
 application.register("popover", PopoverController)
+
+import ToastNotificationController from "./toast_notification_controller"
+application.register("toast-notification", ToastNotificationController)
 
 import TripFiltersController from "./trip_filters_controller"
 application.register("trip-filters", TripFiltersController)

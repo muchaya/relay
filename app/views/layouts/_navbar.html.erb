@@ -5,10 +5,17 @@
     <% end %>
 
     <ul class="flex items-center gap-x-6 text-lg">
-      <li><%= link_to "For Drivers", "", class: "block rounded-sm" %></li>
-      <li><%= link_to "For Passengers", "", class: "block rounded-sm" %></li>
-      <li><%= link_to "Log in", "", class: "block rounded-sm" %></li>
-      <li><%= link_to "Sign up", "", class: "block rounded-sm" %></li>
+      <li><%= link_to "For Drivers", for_drivers_path, class: "block rounded-sm" %></li>
+      <li><%= link_to "For Passengers", for_passengers_path, class: "block rounded-sm" %></li>
+
+      <% if authenticated? %>
+        <li><%= link_to "Log out", session_path, data: { turbo_method: :delete }, class: "block" %></li>  
+      <% else %>
+        <li><%= link_to "Log in", new_session_path, class: "block", data: { action: 'click->modal#open', modal_id_param: "turbo-modal", turbo_frame: :modal } %></li>
+        <li><%= link_to "Sign up", new_registration_path, class: "block ", data: { action: 'click->modal#open', modal_id_param: "turbo-modal", turbo_frame: :modal } %></li>
+      <% end %>
+
+
       <li>
        <button class="bg-blue text-white rounded-full px-8 py-3 font-medium">
           Post a ride

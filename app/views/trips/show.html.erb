@@ -1,137 +1,157 @@
 <section class="mt-6">
   <div class="flex items-start gap-x-24">
   <div class="w-5/8">
-    <div class="flex items-end gap-x-2 border-b border-gray-200 pb-4">
-      <h1 class="text-3xl">
-        <%= @trip.route.from_place.name %> to <%= @trip.route.to_place.name %>
+    <div class="font-extrabold flex items-end gap-x-2 pb-12">
+      <h1 class="text-3xl flex items-center gap-x-2">
+        <span class="block"><%= @trip.route.from_place.name %> </span>
+        <%= inline_svg_tag "long_arrow.svg", class: "w-6 h-8 stroke-3 stroke-black-200" %>
+        <span class="block"><%= @trip.route.to_place.name %></span>
       </h1>
     </div>
 
-    <div class="flex items-end justify-between gap-x-16 py-5 border-b border-gray-200">
+
+<div class="<%= @trip.theme[:bg_color_class] %> <%= @trip.theme[:border_color_class] %> py-3 border rounded-2xl cursor-pointer">
+  <div class="flex items-start justify-between border-b <%= @trip.theme[:divider_class] %> pt-1 pb-4 px-6">
+    <div class="flex items-center gap-x-2 w-1/3">
+      <div class="h-11.5 w-11.5 border-[1.5px] <%= @trip.theme[:image_ring_color_class] %> rounded-full flex items-center justify-center">
+        <%= image_tag @trip.driver.avatar, class: "mx-auto block object-cover h-10 w-10 rounded-full bg-gray-300 opacity-90" %>
+      </div>
       <div class="">
-        <h3 class="text-lg font-medium ">Saturday, 20 March</h3>
+        <div class="flex items-center gap-x-1">
+          <span class="block mt-1 font-bold text-[20px] <%= @trip.theme[:heading_color_class] %>"><%= @trip.driver.fullname %></span>
+          <% if @trip.driver.verified? %>
+            <%= inline_svg_tag "verified.svg", class: "h-5 w-5 fill-blue stroke-white stroke-1.5 mt-1"%>
+          <% end %>  
+        </div>
+        
+        
+        
+        <span class="block -mt-1 text-[13px] <%= @trip.theme[:text_color ]%>"><%= rand(2..9) %> trips driven</span>
+      </div>
+    </div>
+    
+    <div class="flex items-center gap-x-2 w-2/3 <%= @trip.theme[:text_color ]%>">
+      <div class="flex flex-col ml-auto">
         <div class="flex items-center gap-x-2">
-          <%= inline_svg_tag "car_model.svg", class: "stroke-black-400 stroke-1 w-5 h-5 fill-none"%>
-          <h3 class="text-sm font-medium stroke-black">Honda Grace</h3>
-        </div>
-      </div> 
-
-      <div class="mt-0.5 flex items-center gap-x-2 <%= @trip.theme[:text_color ]%>">
-        <div class="flex flex-col">
-          <div class="flex items-center gap-x-2">
-            <p class="font-bold text-[14px] -mt-0.5"><%= @trip.departs_at %></p>
-            <div class="flex items-center">
-              <div class="<%= @trip.theme[:itinerary_classes] %>"></div>
-              <span class="mx-2"><%= @trip.duration_in_hours %></span>
-              <%= inline_svg_tag "#{@trip.theme[:icon]}", class: "#{@trip.theme[:icon_classes]}" %>
-              <div class="<%= @trip.theme[:itinerary_classes] %>"></div>
-            </div>
-          </div>
-          <div class="-mt-1.5">
-            <span class="text-[15px] font-medium"><%= @trip.route.from_place_slug.capitalize %></span>
+          <p class="font-bold text-[14px] -mt-0.5"><%= @trip.departs_at %></p>
+          <div class="flex items-center">
+            <div class="<%= @trip.theme[:itinerary_classes] %>"></div>
+            <span class="mx-2"><%= @trip.duration_in_hours %></span>
+            <%= inline_svg_tag "#{@trip.theme[:icon]}", class: "#{@trip.theme[:icon_classes]}" %>
+            <div class="<%= @trip.theme[:itinerary_classes] %>"></div>
           </div>
         </div>
-        <div class="-mt-0.5">
-          <span class="font-bold text-[14px] block"><%= @trip.arrives_at %></span>
-          <span class="text-[15px] font-medium block -mt-1"><%= @trip.route.to_place_slug.capitalize %></span>
+        <div class="-mt-1.5">
+          <span class="text-[15px] font-medium"><%= @trip.route.from_place_slug.capitalize %></span>
         </div>
       </div>
-    </div>
-
-    <div class="py-5 border-b border-gray-200 flex items-center justify-between">
-      <div class="flex items-center gap-x-6">
-        <div class="relative">
-          <div class="border border-gray-200 rounded-full">
-            <%= image_tag @trip.driver.avatar, class: "w-12 h-12 object-cover rounded-full z-10 relative"%>
-          </div>
-        </div>
-        <div class="flex items-center">
-          <div class="gap-x-3">
-            <div class="flex items-center gap-x-3">
-              <h2 class="text-xl font-medium"> Trip by <%= @trip.driver.fullname %></h2>
-            </div>
-            <p class="block text-gray text-[14px]">New driver on Relay</p>
-          </div>
-        </div>
+      <div class="-mt-0.5">
+        <span class="font-bold text-[14px] block"><%= @trip.arrives_at %></span>
+        <span class="text-[15px] font-medium block -mt-1"><%= @trip.route.to_place_slug.capitalize %></span>
       </div>
     </div>
+  </div>
 
-    <div class="flex items-center gap-x-8 py-6 border-b border-gray-200">
-      <%= image_tag "lock.png", class: "w-12 h-12" %>
-      <p class="w-1/2 text-gray-neutral text-[14px]">
+  <div class="px-6 pt-5 pb-2 flex items-center gap-x-8 text-[15px] <%= @trip.theme[:icon_text_class]%>">
+    <div class="flex items-center gap-x-2">
+      <%= inline_svg_tag "car_ultra_compact.svg", class: "w-5 h-5 stroke-2 #{@trip.theme[:icon_stroke_class]} block" %>
+      <span class=""><%= @trip.vehicle.model %></span>
+    </div>
+    <% if @trip.women_only? %>
+      <div class="flex items-center gap-x-1">
+        <%= inline_svg_tag "#{@trip.theme[:women_only_icon]}", class: "w-6 h-6 fill-blue stroke-[2.4] fill-none"%>
+        <span class="block">Women Only</span>
+      </div>
+    <% end %>
+    <div class="flex items-center gap-x-1">
+      <%= inline_svg_tag "luggage.svg", class: "w-6 h-5 #{@trip.theme[:icon_stroke_class]} stroke-[1.6] fill-none"%>
+      <span class="block"><%= @trip.luggage_policy.titleize %> luggage allowed</span>
+    </div>
+    <p class="ml-auto text-[18px]">3 seats left</p>
+  </div>
+</div>
+
+
+
+
+
+
+    <div class="flex items-center gap-x-3 py-6 border-b border-gray-200">
+      <%= image_tag "lock.png", class: "w-8 h-8" %>
+      <p class=" text-gray-neutral text-[14px]">
         The driver's contact information and the vehicle's identity will only be shared after booking.
         <span class="ml-1 text-blue decoration-[1.5px] decoration-blue underline underline-offset-2 ">Learn more</span>
       </p>
-      
     </div>
 
-    <h1 class="text-2xl pb-3 mt-8">What to expect</h1> 
+    <h1 class="mt-16 mb-8 font-extrabold text-3xl tracking-tight">What to expect</h1> 
       
-    <div class="grid grid-cols-2 gap-y-8 gap-x-6 pt-6 pb-12 border-b border-gray-200">
-      <div class="grid grid-cols-[48px_1fr] gap-x-6 ">
-        <%= inline_svg_tag "seats.svg", class: "stroke-black-500 w-12 h-12 stroke-[0.2px] block" %>
-        <div>
-          <p class="text-lg">4 seats capacity</p>
-          <p class="text-[14px] text-gray">Women only allowed on this trip. Maximum of 3 passengers at the back seat.</p>
+    <div class="flex items-start">
+      <div class="flex flex-col w-1/2">
+        <div class="h-9 mb-3">
+          <%= inline_svg_tag "users_v2.svg", class: "w-8 h-8 stroke-gray-400 stroke-[1.5]" %>
         </div>
+        <h3 class="font-bold text-xl">4 seats capacity</h3>
+        <p class="text-gray-500 text-base mt-2">
+          Women only allowed on this trip. Maximum of 3 passengers at the back seat.
+        </p>
       </div>
-      <div class="grid grid-cols-[48px_1fr] gap-x-6">
-        <%= inline_svg_tag "luggage.svg", class: "stroke-black-200 w-8 h-8 stroke-[1.6px] block mx-auto" %>
-        <div>
-          <p class="text-lg">Small luggage allowed</p>
-          <p class="text-[14px] text-gray">Upto 20kg of legal goods allowed on this ride.</p>
+
+      <div class="flex flex-col w-1/2">
+        <div class="h-9 mb-3">
+          <%= inline_svg_tag "luggage.svg", class: "w-8 h-8 stroke-gray-400 stroke-[1.5]" %>
         </div>
-      </div>
-      <div class="grid grid-cols-[48px_1fr] gap-x-6">
-        <%= inline_svg_tag "music_note.svg", class: "stroke-black-200 w-8 h-8 stroke-[1.7] block mx-auto" %>
-        <div>
-          <p class="text-lg">Music on board</p>
-          <p class="text-[14px] text-gray">Tunes at a comfortable volume - never too loud.</p>
-        </div>
-      </div>
-      <div class="grid grid-cols-[48px_1fr] gap-x-6">
-        <%= inline_svg_tag "chat.svg", class: "stroke-black-200 w-8 h-8 stroke-[1.7] block mx-auto" %>
-        <div>
-          <p class="text-lg">Friendly conversation.</p>
-          <p class="text-[14px] text-gray">The driver is happy to chat during the trip if passengers feel like it.</p>
-        </div>
-      </div>
-      <div class="grid grid-cols-[48px_1fr] gap-x-6">
-        <%= inline_svg_tag "cancel_calendar.svg", class: "stroke-black-500 w-8 h-8 stroke-[0.2px] block mx-auto" %>
-        <div>
-          <p class="text-lg">Flexible cancellation</p>
-          <p class="text-[14px] text-gray">Cancel up to 3 hours before the journey.</p>
-        </div>
+        <h3 class="font-bold text-xl">Small luggage allowed</h3>
+        <p class="text-gray-500 text-base mt-2">
+          Up to 20kg of legal goods allowed on this ride.
+        </p>
       </div>
     </div>
+
+    <div class="flex items-start mt-12">
+      <div class="flex flex-col w-1/2">
+        <div class="h-9 mb-3">
+          <%= inline_svg_tag "music_note.svg", class: "w-8 h-8 stroke-gray-400 stroke-[1.5]" %>
+        </div>
+        <h3 class="font-bold text-xl">Music on board</h3>
+        <p class="text-gray-500 text-base mt-2">
+          Tunes at a comfortable volume - never too loud.
+        </p>
+      </div>
+
+      <div class="flex flex-col w-1/2">
+        <div class="h-9 mb-3">
+          <%= inline_svg_tag "chat.svg", class: "w-8 h-8 stroke-gray-400 stroke-[1.5] fill-gray-400]" %>
+        </div>
+        <h3 class="font-bold text-xl">Friendly conversation</h3>
+        <p class="text-gray-500 text-base mt-2">
+          The driver is happy to chat during the trip if passengers feel like it.
+        </p>
+      </div>
+    </div>
+
+
+    <div class="grid grid-cols-2 gap-x-8 py-3">
+      <div class="">
+        <%= inline_svg_tag "cancel_calendar.svg", class: "w-7 h-7 stroke-gray-400 stroke-[0.4] fill-gray-400" %>
+        <h3 class="font-bold text-xl mt-3">Flexible cancellation</h3>
+        <p class="text-gray-500 text-base mt-2">
+          Cancel up to 3 hours before the journey.
+        </p>
+      </div>
+    </div> 
   </div> 
   <div class="w-3/8">
     <div class="rounded-xl p-6">
       <div class="">
         <h1 class="text-4xl pb-4 text-slate-800 border-b border-gray-200"><b class="tracking-tight">$10.50</b> <span class="text-lg">per seat</span></h1> 
 
-        <div class="border-b border-gray-200 flex items-center gap-x-3 py-4">
-          <%= inline_svg_tag "coins.svg", class: "w-6 h-6 stroke-black stroke-2"%>
-          <div class="">
-            <h4 class="text-base font-medium">Pay on relay</h4>
-            <p class="text-[14px]  text-black-700">Pay 50 cents to secure your booking.</p>
-          </div>
-        </div>
 
-        <div class="border-b border-gray-200 flex items-center gap-x-3 py-4">
-          <%= inline_svg_tag "cash.svg", class: "w-6 h-6 stroke-black stroke-2 fill-none"%>
-          <div class="">
-            <h4 class="text-base font-medium">Pay in the car.</h4>
-            <p class="text-[14px]  text-black-700">Pay $10.00 to the driver in the car or during the trip.</p>
-          </div>
-        </div>
-      </div>
-
-      <div data-controller="dropdown-select" class="mt-6 mb-12">
+      <div data-controller="dropdown-select" class="mb-4 mt-8">
         <h2 class="text-sm text-gray-neutral mb-2">Select seats</h2>
         <input type="hidden" name="booking[passengers]" data-dropdown-select-target="input" value="seats">
 
-        <div data-dropdown-select-target="selected" data-action="click->dropdown-select#toggle" class="flex justify-between items-center border border-white-coffee w-full rounded-lg p-3 cursor-pointer">
+        <div data-dropdown-select-target="selected" data-action="click->dropdown-select#toggle" class="flex justify-between items-center border border-white-coffee w-full rounded-lg px-3 py-3.5 cursor-pointer">
           <div class="flex justify-between w-full mr-4">
             <span data-dropdown-select-target="label" class="font-semibold block">1 seat</span>
             <span data-dropdown-select-target="amount" class="text-gray-500 block">$10.50</span>
@@ -152,11 +172,30 @@
           </li>
         </ul>
       </div>
- 
-      <div class="pb-4">
-        <button class="text-white block mt-6 py-3.5 px-4 bg-blue rounded-full w-full text-lg font-medium">Reserve your seat</button>
-        <p class="text-sm text-center mt-4">Only $0.50 charged now.</p>
+
+      <div class="border-b border-gray-200 flex items-center gap-x-3 py-4">
+        <%= inline_svg_tag "coins.svg", class: "w-6 h-6 stroke-gray-400 stroke-[1.5]"%>
+        <div class="">
+          <h4 class="text-base font-medium">Reservation fee ($0.50)</h4>
+          <p class="text-[14px]  text-black-700">Paid now via Relay to secure your seat.</p>
+        </div>
       </div>
+
+      <div class="border-b border-gray-200 flex items-center gap-x-3 py-4">
+        <%= inline_svg_tag "cash.svg", class: "w-6 h-6 stroke-gray-400 stroke-[1.5] fill-none"%>
+        <div class="">
+          <h4 class="text-base font-medium">Trip fare ($10)</h4>
+          <p class="text-[14px]  text-black-700">Pay directly to the driver during the trip.</p>
+        </div>
+      </div>
+    </div>
+ 
+    <div class="pb-4 mt-12">
+      <button class="text-white block mt-6 py-4 px-4 bg-blue rounded-full w-full text-lg font-medium">Reserve your seat</button>
+      <p class="text-sm text-center mt-4">Report this driver</p>
+    </div>
   </div>
 </div>
  
+
+

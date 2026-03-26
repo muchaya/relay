@@ -26,7 +26,7 @@ bi_directional_routes.each do |route|
   from_place = Place.find_by!(name: from_place_name)
   to_place= Place.find_by!(name: to_place_name)
 
-  Route.find_or_create_by!(
+  r = Route.find_or_create_by!(
     from_place_id: from_place.id,
     to_place_id: to_place.id,
     from_place_slug: from_place.slug,

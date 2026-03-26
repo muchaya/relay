@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root "homes#show"
 
+  resource :registration
   resource :session
   resources :passwords, param: :token
   
@@ -21,4 +22,7 @@ Rails.application.routes.draw do
 
   resources :routes, only: [:index]
   resources :trips, only: [:show]
+
+  get "/for-drivers", to: "static#for_drivers"
+  get "/for-passengers", to: "static#for_passengers"
 end

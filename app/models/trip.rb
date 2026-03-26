@@ -68,7 +68,7 @@ class Trip < ApplicationRecord
 
     NIGHT_THEME = {
       bg_color_class: "bg-[#323055]",
-      border_color_class: "border-black-100/30",
+      border_color_class: "border-slate-800",
       heading_color_class: "text-zinc-300",
       divider_class: "border-black",
       icon: "moon.svg",

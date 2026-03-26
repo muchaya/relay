@@ -1,0 +1,12 @@
+<h1 class="uppercase text-center text-[12px] font-medium tracking-wider mt-12">Plan ahead. Get ahead</h1>
+
+<h1 class="text-6xl text-center font-bold mt-10">Find your ride before you leave</h1>
+
+<p class="w-1/2 mx-auto text-2xl mt-8 text-center">
+  No more standing by the roadside waiting for a lift, <br>
+  book long-distance rides in advance.
+</p>
+
+<%= link_to "Join Relay", new_registration_url, data: { action: 'click->modal#open', modal_id_param: "turbo-modal", turbo_frame: :modal },  class: "text-lg bg-blue py-3.5 px-8 mt-8 tracking-wide block mx-auto rounded-full w-fit text-white" %>
+
+<%= image_tag "pages/for_pass.jpg", class: "border border-blue-200 shadow-sm mt-16 w-4/5 block mx-auto rounded-4xl" %>

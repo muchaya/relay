@@ -138,3 +138,22 @@
   transform: scale(1) rotate(-45deg);
   opacity: 1;
   }
+
+
+
+  dialog {
+    opacity: 0.2;
+    transform: scaleY(0);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    min-height: 100vh;
+    background: none;
+  }
+  
+  dialog[open] {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+  
+  dialog::backdrop {
+    background-color: rgba(29, 31, 32, 0.95);
+  }

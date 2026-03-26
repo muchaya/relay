@@ -94,6 +94,7 @@ ActiveRecord::Schema[8.0].define(version: 2026_03_04_192915) do
     t.decimal "price", precision: 8, scale: 2, null: false
     t.integer "seat_capacity", null: false
     t.boolean "women_only", default: false, null: false
+    t.boolean "instant_booking", default: false, null: false
     t.string "luggage_policy"
     t.boolean "smoking_allowed", default: false, null: false
     t.text "driver_notes"
@@ -115,6 +116,8 @@ ActiveRecord::Schema[8.0].define(version: 2026_03_04_192915) do
     t.string "email_address", null: false
     t.string "password_digest", null: false
     t.string "phone_number"
+    t.boolean "terms_accepted"
+    t.boolean "privacy_policy_accepted"
     t.string "gender"
     t.string "identity_card_number"
     t.boolean "verified"

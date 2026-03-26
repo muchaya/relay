@@ -5,6 +5,8 @@ class CreateUsers < ActiveRecord::Migration[8.0]
       t.string :email_address, null: false
       t.string :password_digest, null: false
       t.string :phone_number
+      t.boolean :terms_accepted
+      t.boolean :privacy_policy_accepted
       t.string :gender
       t.string :identity_card_number
       t.boolean :verified

@@ -1,0 +1,5 @@
+<% flash.each do |type, message| %>
+  <div data-controller="toast-notification" class="w-fit transition-all duration-1000 fixed bottom-[-50%] left-1/2 transform -translate-x-1/2 bg-gray-800 tracking-wide z-10 opacity-90 text-white rounded-full p-3 px-8">
+    <%= message %>
+  </div>
+<% end %>

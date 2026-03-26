@@ -22,12 +22,15 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
   </head>
 
-  <body class="font-sans bg-sheet">
+  <body data-controller="modal" class="font-sans bg-sheet">
     <div class="">
       <%= render "layouts/navbar" %>
       <div class="px-20">
         <%= yield %>
       </div>
+
+      <%= render "shared/modal" %>
+      <%= render partial: "shared/toast_notification" %>
     </div>
   </body>
 </html>
