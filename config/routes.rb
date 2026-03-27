@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get "bookings/new"
+  get "bookings/show"
   root "homes#show"
 
   resource :registration
@@ -19,7 +21,8 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   get "/demo", to: "static#demo"
-
+  
+  resources :bookings, only: [:new, :create, :show]
   resources :routes, only: [:index]
   resources :trips, only: [:show]
 

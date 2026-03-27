@@ -142,37 +142,53 @@
     </div> 
   </div> 
   <div class="w-3/8">
-    <div class="rounded-xl p-6">
-      <div class="">
-        <h1 class="text-4xl pb-4 text-slate-800 border-b border-gray-200"><b class="tracking-tight">$10.50</b> <span class="text-lg">per seat</span></h1> 
-
+    <%= form_with url: new_booking_path, method: :get, class: "rounded-xl p-6" do |form| %>
+      <h1 class="text-4xl pb-4 text-slate-800 border-b border-gray-200"><b class="tracking-tight">$10.50</b> <span class="text-lg">per seat</span></h1> 
 
       <div data-controller="dropdown-select" class="mb-4 mt-8">
         <h2 class="text-sm text-gray-neutral mb-2">Select seats</h2>
-        <input type="hidden" name="booking[passengers]" data-dropdown-select-target="input" value="seats">
 
-        <div data-dropdown-select-target="selected" data-action="click->dropdown-select#toggle" class="flex justify-between items-center border border-white-coffee w-full rounded-lg px-3 py-3.5 cursor-pointer">
+        <%= form.hidden_field :trip_id, value: @trip.id%>
+
+        <input type="hidden" 
+              name="booking[seats]" 
+              value="1" 
+              data-dropdown-select-target="input">
+
+        <div data-dropdown-select-target="selected"
+            data-action="click->dropdown-select#toggle"
+            class="flex justify-between items-center border border-white-coffee w-full rounded-lg px-3 py-3.5 cursor-pointer">
           <div class="flex justify-between w-full mr-4">
             <span data-dropdown-select-target="label" class="font-semibold block">1 seat</span>
             <span data-dropdown-select-target="amount" class="text-gray-500 block">$10.50</span>
           </div>
+
           <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
-            <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.25a.75.75 0 01-1.06 0L5.21 8.27a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+            <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.25a.75.75 0 01-1.06 0L5.21 8.27a.75.75 0 01.02-1.06z" clip-rule="evenodd"/>
           </svg>
         </div>
 
-        <ul data-dropdown-select-target="options" class="hidden z-10 mt-2 w-full border border-white-coffee rounded-lg">
-          <li data-action="click->dropdown-select#select click->date-picker#changeType" data-date-picker-type-param="hourly" data-value="hourly" data-label="1 seat" data-amount="$10.50" class="border-b border-white-coffee px-4 py-3 flex justify-between cursor-pointer">
-            <span class="block">1 seat</span>
-            <span class="block">$10.50</span>
+        <ul data-dropdown-select-target="options"
+            class="hidden z-10 mt-2 w-full border border-white-coffee rounded-lg bg-white shadow">
+          <li data-action="click->dropdown-select#select"
+              data-value="1"
+              data-label="1 seat"
+              data-amount="$10.50"
+              class="border-b border-white-coffee px-4 py-3 flex justify-between cursor-pointer hover:bg-gray-50">
+            <span>1 seat</span>
+            <span>$10.50</span>
           </li>
-          <li data-action="click->dropdown-select#select click->date-picker#changeType" data-date-picker-type-param="daily" data-value="daily" data-label="2 seats" data-amount="$21.00" class="bg-darker-sheet px-4 py-3 flex justify-between cursor-pointer">
-            <span class="block">2 seats</span>
-            <span class="block">$21.00</span>
+
+          <li data-action="click->dropdown-select#select"
+              data-value="2"
+              data-label="2 seats"
+              data-amount="$21.00"
+              class="px-4 py-3 flex justify-between cursor-pointer hover:bg-gray-50">
+            <span>2 seats</span>
+            <span>$21.00</span>
           </li>
         </ul>
       </div>
-
       <div class="border-b border-gray-200 flex items-center gap-x-3 py-4">
         <%= inline_svg_tag "coins.svg", class: "w-6 h-6 stroke-gray-400 stroke-[1.5]"%>
         <div class="">
@@ -188,13 +204,13 @@
           <p class="text-[14px]  text-black-700">Pay directly to the driver during the trip.</p>
         </div>
       </div>
+
+      <div class="pb-4 mt-12">
+        <%= form.submit "Reserve your seat", name: nil, class: "cursor-pointer text-white block mt-6 py-4 px-4 bg-blue rounded-full w-full text-lg font-medium" %>
+        <p class="text-sm text-center mt-4">Report this driver</p>
+      </div>
     </div>
- 
-    <div class="pb-4 mt-12">
-      <button class="text-white block mt-6 py-4 px-4 bg-blue rounded-full w-full text-lg font-medium">Reserve your seat</button>
-      <p class="text-sm text-center mt-4">Report this driver</p>
-    </div>
-  </div>
+  <% end %>
 </div>
  
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2026_03_04_192915) do
+ActiveRecord::Schema[8.0].define(version: 2026_03_27_073008) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -40,6 +40,25 @@ ActiveRecord::Schema[8.0].define(version: 2026_03_04_192915) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "bookings", force: :cascade do |t|
+    t.string "status"
+    t.decimal "base_price"
+    t.decimal "commitment_fee"
+    t.bigint "trip_id", null: false
+    t.bigint "passenger_id", null: false
+    t.datetime "cancelled_at"
+    t.string "cancelled_by"
+    t.integer "seats"
+    t.string "payment_status"
+    t.string "payment_reference"
+    t.string "paid_at"
+    t.boolean "no_show"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["passenger_id"], name: "index_bookings_on_passenger_id"
+    t.index ["trip_id"], name: "index_bookings_on_trip_id"
   end
 
   create_table "places", force: :cascade do |t|
@@ -139,6 +158,8 @@ ActiveRecord::Schema[8.0].define(version: 2026_03_04_192915) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "bookings", "trips"
+  add_foreign_key "bookings", "users", column: "passenger_id"
   add_foreign_key "routes", "places", column: "from_place_id"
   add_foreign_key "routes", "places", column: "to_place_id"
   add_foreign_key "sessions", "users"
