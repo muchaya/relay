@@ -31,6 +31,9 @@ application.register("password-toggle", PasswordToggleController)
 import PopoverController from "./popover_controller"
 application.register("popover", PopoverController)
 
+import RadioAccordionController from "./radio_accordion_controller"
+application.register("radio-accordion", RadioAccordionController)
+
 import ToastNotificationController from "./toast_notification_controller"
 application.register("toast-notification", ToastNotificationController)
 

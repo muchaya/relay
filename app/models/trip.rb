@@ -26,6 +26,10 @@ class Trip < ApplicationRecord
     trips
   }
 
+  def departs_on
+    departure_time.strftime("%a, %d %B %Y")
+  end
+
   def departs_at
     departure_time.strftime("%H:%M")
   end
