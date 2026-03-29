@@ -22,4 +22,6 @@ export default class extends Controller {
       content.classList.add('hidden')
     })
   }
+
+  /* if we toggle, and there is an input element, whatevever we submit will be the */
 }
