@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/muchaya/paynow.git
+  revision: 98dd5b3f7154c06246c92040b4908618f64e4019
+  branch: refactor_payment_builder
+  specs:
+    paynow (0.1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -405,6 +412,7 @@ DEPENDENCIES
   jbuilder
   jsbundling-rails
   kamal
+  paynow!
   pg
   propshaft
   puma (>= 5.0)

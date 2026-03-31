@@ -1,0 +1,78 @@
+.selected-item {
+  text-align: center;
+}
+
+.controls-container {
+  --highlight-width: auto;
+  --highlight-x-pos: 0;
+
+  display: flex;
+}
+
+.controls {
+  display: inline-flex;
+  justify-content: space-between;
+  gap: 0 4px;
+  background-color: rgb(237, 241, 245);
+  border-radius: 8px;
+  padding: 9px 2px 9px 1px;
+  overflow: hidden;
+  position: relative;
+  font-size: 14.25px;
+}
+
+.controls input {
+  opacity: 0;
+  margin: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  cursor: pointer;
+  height: 100%;
+}
+
+.segment {
+  /* width: 100%; uncomment for each segment to have matching width */
+  padding-left: 12px;
+  padding-right: 12px;
+  position: relative;
+  text-align: center;
+  z-index: 1;
+}
+
+.segment label {
+  cursor: pointer;
+  display: block;
+  padding: 3.9px;
+  font-weight: 500;
+  transition: color 0.5s ease;
+  color: rgb(101, 116, 130);
+  letter-spacing: 0.1px;
+}
+
+
+.segment.selected-segment label {
+  color: #333;
+}
+
+.controls::before {
+  content: "";
+  background: #fff;
+  border-radius: 6px;
+  width: var(--highlight-width);
+  transform: translateX(var(--highlight-x-pos));
+  position: absolute;
+  top: 1px;
+  bottom: 0.75px;
+  left: 1px;
+  z-index: 0;
+  border: 1px solid #cbd5e1;
+}
+
+/* Only allow transitions when DOM content is loaded */
+.controls.transitionable::before {
+  transition: transform .3s ease, width .3s ease;
+}

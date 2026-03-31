@@ -3,6 +3,7 @@
 @import "./forms/checkbox.css";
 @import "./forms/floating_inputs.css";
 @import "./forms/radio_button.css";
+@import "./forms/segmented_controls.css";
 @import "./forms/toggle_switch.css";
 @import "./miscellaneous/grainy_gradient.css";
 @import "./miscellaneous/itinerary.css";

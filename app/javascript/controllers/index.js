@@ -34,6 +34,9 @@ application.register("popover", PopoverController)
 import RadioAccordionController from "./radio_accordion_controller"
 application.register("radio-accordion", RadioAccordionController)
 
+import SegmentedControlsController from "./segmented_controls_controller"
+application.register("segmented-controls", SegmentedControlsController)
+
 import ToastNotificationController from "./toast_notification_controller"
 application.register("toast-notification", ToastNotificationController)
 
