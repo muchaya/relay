@@ -1,5 +1,6 @@
 class Trip < ApplicationRecord
   BOOLEAN_FILTERS = %i[women_only instant_booking].freeze
+  COMMITMENT_FEE = 0.50
 
   belongs_to :route
   belongs_to :driver, class_name: "User"
@@ -7,11 +8,9 @@ class Trip < ApplicationRecord
 
   has_many :bookings, dependent: :destroy
 
-  validates :departure_time, :price, :seat_capacity, presence: true
+  validates :departure_time, :base_price, :seat_capacity, presence: true
   validates :seat_capacity, numericality: { greater_than: 0 }
-  validates :price, numericality: { greater_than_or_equal_to: 0 }
-
-  #enum :statuses, 
+  validates :base_price, numericality: { greater_than_or_equal_to: 0 }
 
   scope :on, ->(day) { where(departure_time: day.beginning_of_day..day.end_of_day) }
   scope :women_only,    -> { where(women_only: true) }
@@ -25,6 +24,10 @@ class Trip < ApplicationRecord
     trips = trips.verified_drivers if params[:verified_drivers]
     trips
   }
+
+  def total_price
+    base_price + commitment_fee
+  end
 
   def departs_on
     departure_time.strftime("%a, %d %B %Y")

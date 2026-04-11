@@ -1,0 +1,24 @@
+<div class="w-1/2 mx-auto">
+  <h2 class="text-3xl text-center font-medium">Relay</h2>
+
+  <div class="mt-32 border-b border-gray-300 pb-12 w-fit mx-auto">
+    <h1 class="text-3xl text-slate-800 font-extrabold text-center">Confirm your payment.</h1>
+    <div class="flex flex-col items-center gap-x-12 ">
+      <p class="text-lg text-gray-500">
+        <span class="block mt-3">Enter your <%= payment.provider.capitalize %> PIN on your phone.</span>
+      </p>
+      <div class="flex items-center w-fit mx-auto mt-12">
+        <%= inline_svg_tag "phone.svg", class: "w-32 h-32 stroke-1 stroke-slate-600" %>
+        <%= inline_svg_tag   "pin_code.svg", class: "w-16 h-16 stroke-2 stroke-white fill-blue" %>
+      </div>
+
+    </div>
+
+  </div>
+
+      <div class="flex items-center mx-auto w-fit gap-x-2 mt-6">
+        <h3>Didn't receive a prompt?</h3>
+      <a class="text-blue">Try again</a>
+    </div>
+
+</div>

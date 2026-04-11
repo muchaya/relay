@@ -4,6 +4,8 @@ export default class extends Controller {
   // action: "click->modal#open"
   open(event) {
     const modal = document.getElementById(event.params.id)
+
+    console.log("I am fired")
   
     modal.showModal()
   }

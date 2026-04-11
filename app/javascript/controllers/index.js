@@ -34,6 +34,9 @@ application.register("popover", PopoverController)
 import RadioAccordionController from "./radio_accordion_controller"
 application.register("radio-accordion", RadioAccordionController)
 
+import RadioCardsController from "./radio_cards_controller"
+application.register("radio-cards", RadioCardsController)
+
 import SegmentedControlsController from "./segmented_controls_controller"
 application.register("segmented-controls", SegmentedControlsController)
 
@@ -42,3 +45,6 @@ application.register("toast-notification", ToastNotificationController)
 
 import TripFiltersController from "./trip_filters_controller"
 application.register("trip-filters", TripFiltersController)
+
+import TurboPollController from "./turbo_poll_controller"
+application.register("turbo-poll", TurboPollController)

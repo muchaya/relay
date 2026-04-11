@@ -13,9 +13,9 @@
   display: inline-flex;
   justify-content: space-between;
   gap: 0 4px;
-  background-color: rgb(237, 241, 245);
-  border-radius: 8px;
-  padding: 9px 2px 9px 1px;
+  background-color: rgb(5, 117, 230, 0.1);
+  border-radius: 19842018px;
+  padding: 12px 4px 11px 2px;
   overflow: hidden;
   position: relative;
   font-size: 14.25px;
@@ -36,8 +36,8 @@
 
 .segment {
   /* width: 100%; uncomment for each segment to have matching width */
-  padding-left: 12px;
-  padding-right: 12px;
+  padding-left: 18px;
+  padding-right: 18px;
   position: relative;
   text-align: center;
   z-index: 1;
@@ -61,12 +61,12 @@
 .controls::before {
   content: "";
   background: #fff;
-  border-radius: 6px;
+  border-radius: 19842018px;
   width: var(--highlight-width);
   transform: translateX(var(--highlight-x-pos));
   position: absolute;
-  top: 1px;
-  bottom: 0.75px;
+  top: 2px;
+  bottom: 2px;
   left: 1px;
   z-index: 0;
   border: 1px solid #cbd5e1;

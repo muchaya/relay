@@ -2,7 +2,8 @@ class CreateTrips < ActiveRecord::Migration[8.0]
   def change
     create_table :trips do |t|
       t.datetime :departure_time, null: false
-      t.decimal  :price, precision: 8, scale: 2, null: false
+      t.decimal  :base_price, precision: 8, scale: 2, null: false
+      t.decimal :commitment_fee, precision: 8, scale: 2, null: false
       t.integer :seat_capacity, null: false
       t.boolean :women_only, default: false, null: false
       t.boolean :instant_booking, default: false, null: false

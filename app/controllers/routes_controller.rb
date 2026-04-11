@@ -17,6 +17,6 @@ class RoutesController < ApplicationController
 
   private
     def sort
-      params[:sort].presence_in(%w[departure_time price]) || "departure_time"
+      params[:sort].presence_in(%w[departure_time base_price]) || "departure_time"
     end
 end

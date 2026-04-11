@@ -10,9 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2026_03_27_073008) do
+ActiveRecord::Schema[8.0].define(version: 2026_04_02_124556) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
+
+  # Custom types defined in this database.
+  # Note that some types may not work with other database engines. Be careful if changing database.
+  create_enum "booking_status", ["pending", "reserved", "confirmed", "completed", "cancelled"]
+  create_enum "payment_status", ["pending", "completed", "failed", "refunded"]
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -43,22 +48,33 @@ ActiveRecord::Schema[8.0].define(version: 2026_03_27_073008) do
   end
 
   create_table "bookings", force: :cascade do |t|
-    t.string "status"
-    t.decimal "base_price"
+    t.enum "status", enum_type: "booking_status"
     t.decimal "commitment_fee"
     t.bigint "trip_id", null: false
     t.bigint "passenger_id", null: false
+    t.string "phone_number"
+    t.string "payment_method"
     t.datetime "cancelled_at"
     t.string "cancelled_by"
     t.integer "seats"
-    t.string "payment_status"
-    t.string "payment_reference"
-    t.string "paid_at"
-    t.boolean "no_show"
+    t.boolean "no_show", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["passenger_id"], name: "index_bookings_on_passenger_id"
     t.index ["trip_id"], name: "index_bookings_on_trip_id"
+  end
+
+  create_table "payments", force: :cascade do |t|
+    t.enum "status", enum_type: "payment_status"
+    t.bigint "booking_id", null: false
+    t.decimal "amount"
+    t.string "poll_url"
+    t.string "provider"
+    t.string "provider_reference"
+    t.datetime "paid_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["booking_id"], name: "index_payments_on_booking_id"
   end
 
   create_table "places", force: :cascade do |t|
@@ -110,7 +126,8 @@ ActiveRecord::Schema[8.0].define(version: 2026_03_27_073008) do
 
   create_table "trips", force: :cascade do |t|
     t.datetime "departure_time", null: false
-    t.decimal "price", precision: 8, scale: 2, null: false
+    t.decimal "base_price", precision: 8, scale: 2, null: false
+    t.decimal "commitment_fee", precision: 8, scale: 2, null: false
     t.integer "seat_capacity", null: false
     t.boolean "women_only", default: false, null: false
     t.boolean "instant_booking", default: false, null: false
@@ -160,6 +177,7 @@ ActiveRecord::Schema[8.0].define(version: 2026_03_27_073008) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "bookings", "trips"
   add_foreign_key "bookings", "users", column: "passenger_id"
+  add_foreign_key "payments", "bookings"
   add_foreign_key "routes", "places", column: "from_place_id"
   add_foreign_key "routes", "places", column: "to_place_id"
   add_foreign_key "sessions", "users"

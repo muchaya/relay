@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get "bookings/new"
-  get "bookings/show"
   root "homes#show"
 
   resource :registration
@@ -22,9 +20,16 @@ Rails.application.routes.draw do
 
   get "/demo", to: "static#demo"
   
-  resources :bookings, only: [:new, :create, :show]
+  resources :bookings, only: [ :new, :create, :show ]
   resources :routes, only: [:index]
   resources :trips, only: [:show]
+
+
+  resources :bookings do
+    scope module: 'bookings' do
+      resources :payments, only: [ :create, :show ]
+    end
+  end
 
   get "/for-drivers", to: "static#for_drivers"
   get "/for-passengers", to: "static#for_passengers"

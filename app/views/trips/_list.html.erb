@@ -40,7 +40,7 @@
               <span class="font-bold text-[14px] block"><%= trip.arrives_at %></span>
               <span class="text-[15px] font-medium block -mt-1"><%= @route.to_place_slug.capitalize %></span>
             </div>
-            <h2 class="font-bold text-4xl w-12 ml-auto <%= trip.theme[:heading_color_class]%>">$<%= trip.price.to_i %></h2>
+            <h2 class="font-bold text-4xl w-12 ml-auto <%= trip.theme[:heading_color_class]%>">$<%= trip.base_price.to_i %></h2>
           </div>
         </div>
 

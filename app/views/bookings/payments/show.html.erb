@@ -1,0 +1,9 @@
+<%= turbo_stream_from @payment %>
+
+<div id="payment_status_container">
+  <% if @payment.pending? %>
+    <%= render "pending", payment: @payment%>
+  <% elsif  @payment.completed? %>  
+    <%= render "confirmed", payment: @payment, trip: @trip %>
+  <% end %>
+</div>

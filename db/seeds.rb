@@ -54,7 +54,8 @@ def create_trip!(driver:, route_slug:, date:, time:)
     route: route,
     departure_time: departs_at
   ) do |t|
-    t.price     = ROUTES.fetch(route_slug).call
+    t.base_price     = ROUTES.fetch(route_slug).call
+    t.commitment_fee = 0.50
     t.seat_capacity  = 4
     t.women_only     = driver.gender == "female"
     t.luggage_policy = "small"

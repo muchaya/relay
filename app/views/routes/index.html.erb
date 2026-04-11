@@ -62,7 +62,7 @@
                 </label>
 
                 <label class="form-control">
-                  <%= form.radio_button :sort, "price", checked: params[:sort] == "price", class: "-mt-[1px]!" %>
+                  <%= form.radio_button :sort, "base_price", checked: params[:sort] == "base_price", class: "-mt-[1px]!" %>
                   <span>Lowest price</span>
                   <%= inline_svg_tag "money.svg", class: "w-5 h-5 block stroke-[1.5] stroke-gray-neutral/80 ml-auto" %>
                 </label>
