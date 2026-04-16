@@ -67,14 +67,9 @@
       <%= inline_svg_tag "luggage.svg", class: "w-6 h-5 #{@trip.theme[:icon_stroke_class]} stroke-[1.6] fill-none"%>
       <span class="block"><%= @trip.luggage_policy.titleize %> luggage allowed</span>
     </div>
-    <p class="ml-auto text-[18px]">3 seats left</p>
+    <p class="ml-auto text-[18px]"><%= pluralize(@trip.available_seats, 'seat') %> left</p>
   </div>
 </div>
-
-
-
-
-
 
     <div class="flex items-center gap-x-3 py-6 border-b border-gray-200">
       <%= image_tag "lock.png", class: "w-8 h-8" %>
@@ -148,7 +143,7 @@
       <div data-controller="dropdown-select" class="mb-4 mt-8">
         <h2 class="text-sm text-gray-neutral mb-2">Select seats</h2>
 
-        <%= form.hidden_field :trip_id, value: @trip.id%>
+        <%= form.hidden_field :trip_id, value: @trip.id %>
 
         <input type="hidden" 
             name="booking[seats]" 
@@ -169,26 +164,22 @@
         </div>
 
         <ul data-dropdown-select-target="options"
-            class="hidden z-10 mt-2 w-full border border-white-coffee rounded-lg bg-white shadow">
-          <li data-action="click->dropdown-select#select"
-              data-value="1"
-              data-label="1 seat"
-              data-amount="$10.50"
-              class="border-b border-white-coffee px-4 py-3 flex justify-between cursor-pointer hover:bg-gray-50">
-            <span>1 seat</span>
-            <span>$10.50</span>
-          </li>
-
-          <li data-action="click->dropdown-select#select"
-              data-value="2"
-              data-label="2 seats"
-              data-amount="$21.00"
-              class="px-4 py-3 flex justify-between cursor-pointer hover:bg-gray-50">
-            <span>2 seats</span>
-            <span>$21.00</span>
-          </li>
+            class="hidden z-10 mt-2 w-full border border-white-coffee rounded-lg bg-white shadow max-h-60 overflow-y-auto">
+          
+          <% @trip.seat_options.each do |option| %>
+            <li data-action="click->dropdown-select#select"
+                data-value="<%= option[:value] %>"
+                data-label="<%= option[:label] %>"
+                data-amount="$<%= formatted_price(option[:amount]) %>"
+                class="border-b last:border-b-0 border-white-coffee px-4 py-3 flex justify-between cursor-pointer hover:bg-gray-50 transition-colors">
+              
+              <span class="font-medium text-slate-700"><%= option[:label] %></span>
+              <span class="text-slate-500">$<%= formatted_price(option[:amount]) %></span>
+            </li>
+          <% end %>
         </ul>
       </div>
+
       <div class="border-b border-gray-200 flex items-center gap-x-3 py-4">
         <%= inline_svg_tag "coins.svg", class: "w-6 h-6 stroke-gray-400 stroke-[1.5]"%>
         <div class="">

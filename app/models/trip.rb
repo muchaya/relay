@@ -25,8 +25,57 @@ class Trip < ApplicationRecord
     trips
   }
 
-  def total_price
-    base_price + commitment_fee
+  def create_booking!(booking_params)
+    transaction do
+      with_lock do
+        booking = bookings.build booking_params.merge(status: Booking.statuses[:pending])
+
+        unless booking.valid?
+          raise ActiveRecord::RecordInvalid, booking
+        end
+
+        booking.save!
+        booking
+      end
+    end
+  end
+
+  def full?
+    available_seats.zero?
+  end
+
+  def already_departed?
+    departure_time.past?
+  end
+
+  def total_price_for(number_of_seats)
+    number_of_seats * (base_price + COMMITMENT_FEE)
+  end
+
+  def commitment_fee_for(number_of_seats)
+    number_of_seats * COMMITMENT_FEE
+  end
+
+  def seat_options
+    (1..available_seats).map do |count|
+      {
+        value: count,
+        label: "#{count} #{'seat'.pluralize(count)}",
+        amount: total_price_for(count)
+      }
+    end
+  end
+
+  def available_seats_in_words
+    case available_seats
+    when 0 then "Full"
+    when 1 then "1 seat left"
+    else "#{available_seats} seats left"
+    end
+  end
+
+  def available_seats
+    seat_capacity - bookings.where(status: Booking.statuses[:reserved]).sum(:seats)
   end
 
   def departs_on
