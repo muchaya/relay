@@ -1,13 +1,17 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  make: MyString
   model: MyString
   color: MyString
   number_plate: MyString
-  vehicle_type: MyString
+  terms_accepted: false
+  user: one
 
 two:
+  make: MyString
   model: MyString
   color: MyString
   number_plate: MyString
-  vehicle_type: MyString
+  terms_accepted: false
+  user: two

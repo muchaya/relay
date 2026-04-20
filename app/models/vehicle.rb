@@ -1,3 +1,6 @@
 class Vehicle < ApplicationRecord
-  belongs_to :owner, class_name: "User", optional: true
+  COLORS = %w[ black blue brown gold green grey red silver white yellow ].freeze
+
+  belongs_to :user
 end
+

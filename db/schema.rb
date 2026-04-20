@@ -163,14 +163,15 @@ ActiveRecord::Schema[8.0].define(version: 2026_04_02_124556) do
   end
 
   create_table "vehicles", force: :cascade do |t|
+    t.string "make"
     t.string "model"
     t.string "color"
     t.string "number_plate"
-    t.string "vehicle_type"
-    t.bigint "owner_id"
+    t.boolean "terms_accepted"
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["owner_id"], name: "index_vehicles_on_owner_id"
+    t.index ["user_id"], name: "index_vehicles_on_user_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
@@ -184,4 +185,5 @@ ActiveRecord::Schema[8.0].define(version: 2026_04_02_124556) do
   add_foreign_key "trips", "routes"
   add_foreign_key "trips", "users", column: "driver_id"
   add_foreign_key "trips", "vehicles"
+  add_foreign_key "vehicles", "users"
 end
