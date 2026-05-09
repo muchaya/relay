@@ -6,10 +6,14 @@
       <% end %>
 
       <ul class="flex items-center gap-x-8 text-lg">
-        <li><%= link_to "Find a ride", for_drivers_path, class: "block rounded-sm" %></li>
-        <li><%= link_to "Post a ride", for_drivers_path, class: "block rounded-sm" %></li>
-        <li><%= link_to "My trips", session_path, data: { turbo_method: :delete }, class: "block decoration-3 decoration-blue underline underline-offset-24" %></li> 
-         <li><%= link_to "Garage", vehicles_path, class: "block rounded-sm" %></li>
+        <li><%= link_to "Find a ride", for_drivers_path, class: "block" %></li>
+        <li><%= link_to "Post a ride", for_drivers_path, class: "block" %></li>
+        <li><%= link_to "My trips", session_path, data: { turbo_method: :delete }, class: "" %></li> 
+        
+        <%= link_to_active vehicles_path, class: "block", active_class: 'active_nav_link' do %>
+          <span>Garage</span>
+        <% end %>  
+        
         <li><%= link_to "Profile", session_path, data: { turbo_method: :delete }, class: "block" %></li> 
       </ul>
     </div>
@@ -19,3 +23,5 @@
     </div>
   </div>
 </nav>
+
+
