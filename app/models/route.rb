@@ -5,6 +5,7 @@ class Route < ApplicationRecord
   has_many :trips
 
   scope :active, -> { where(status: :active)}
+  scope :from_place, ->(place_id) { where(from_place_id: place_id) }
 
   before_save :set_slugs
 
@@ -15,6 +16,10 @@ class Route < ApplicationRecord
         { from: r.from_place_id, to: r.to_place_id, distance_km: r.distance_km }
       end
     }
+  end
+
+  def self.destinations_from(place_id)
+    where(from_place_id: place_id)
   end
 
   private

@@ -1,26 +1,38 @@
 <nav class="py-3 px-18">
   <div class="max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto">
-    <%= link_to root_path, class: "block" do %>
+    <%= link_to root_path, class: "block cursor-pointer" do %>
       <span class="text-[36px] tracking-tighter font-bold ">Relay.</span>
     <% end %>
 
     <ul class="flex items-center gap-x-6 text-lg">
-      <li><%= link_to "For Drivers", for_drivers_path, class: "block rounded-sm" %></li>
-      <li><%= link_to "For Passengers", for_passengers_path, class: "block rounded-sm" %></li>
-
       <% if authenticated? %>
-        <li><%= link_to "Log out", session_path, data: { turbo_method: :delete }, class: "block" %></li>  
+        <li><%= link_to "Find a ride", for_drivers_path, class: "block rounded-sm" %></li>
+        <li><%= link_to "Account", account_trips_path, class: "block rounded-sm" %></li>
+        <li><%= link_to "Log out", session_path, data: { turbo_method: :delete }, class: "block" %></li> 
+
       <% else %>
+        <li><%= link_to "For Drivers", for_drivers_path, class: "block rounded-sm" %></li>
+        <li><%= link_to "For Passengers", for_passengers_path, class: "block rounded-sm" %></li>
         <li><%= link_to "Log in", new_session_path, class: "block", data: { action: 'click->modal#open', modal_id_param: "turbo-modal", turbo_frame: :modal } %></li>
         <li><%= link_to "Sign up", new_registration_path, class: "block ", data: { action: 'click->modal#open', modal_id_param: "turbo-modal", turbo_frame: :modal } %></li>
       <% end %>
-
-
       <li>
-       <button class="bg-blue text-white rounded-full px-8 py-3 font-medium">
-          Post a ride
-        </button>
-      </li>
-    </ul>
+
+    <%= link_to "Setup your ride", 
+        new_session_path(return_to: new_trip_path), 
+        data: { action: 'click->modal#open', modal_id_param: "turbo-modal", turbo_frame: :modal },
+        class: "block bg-blue text-white rounded-full px-8 py-3 font-medium" %>
+
+      <% if authenticated? %>
+        <%= link_to "Post a ride", 
+          new_trip_path,
+          data: { action: 'click->modal#open', modal_id_param: "turbo-modal", turbo_frame: :modal },
+          class: "block bg-blue text-white rounded-full px-8 py-3 font-medium" %>  
+      <% else %>
+        <%= link_to "Post a ride", 
+          new_session_path(return_to: new_trip_path), 
+          data: { action: 'click->modal#open', modal_id_param: "turbo-modal", turbo_frame: :modal },
+          class: "block bg-blue text-white rounded-full px-8 py-3 font-medium" %>
+      <% end %>
   </div>
 </nav>

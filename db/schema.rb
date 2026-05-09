@@ -18,6 +18,7 @@ ActiveRecord::Schema[8.0].define(version: 2026_04_02_124556) do
   # Note that some types may not work with other database engines. Be careful if changing database.
   create_enum "booking_status", ["pending", "reserved", "confirmed", "completed", "cancelled"]
   create_enum "payment_status", ["pending", "completed", "failed", "refunded"]
+  create_enum "trip_status", ["upcoming", "full", "completed", "cancelled"]
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -125,19 +126,21 @@ ActiveRecord::Schema[8.0].define(version: 2026_04_02_124556) do
   end
 
   create_table "trips", force: :cascade do |t|
-    t.datetime "departure_time", null: false
-    t.decimal "base_price", precision: 8, scale: 2, null: false
-    t.decimal "commitment_fee", precision: 8, scale: 2, null: false
-    t.integer "seat_capacity", null: false
-    t.boolean "women_only", default: false, null: false
-    t.boolean "instant_booking", default: false, null: false
+    t.enum "status", default: "upcoming", enum_type: "trip_status"
+    t.datetime "departure_time"
+    t.decimal "base_price", precision: 8, scale: 2
+    t.decimal "commitment_fee", precision: 8, scale: 2
+    t.integer "seat_capacity"
+    t.boolean "women_only", default: false
+    t.boolean "instant_booking", default: false
     t.string "luggage_policy"
-    t.boolean "smoking_allowed", default: false, null: false
-    t.text "driver_notes"
-    t.string "status", default: "active", null: false
-    t.bigint "route_id", null: false
-    t.bigint "driver_id", null: false
-    t.bigint "vehicle_id", null: false
+    t.boolean "smoking_allowed", default: false
+    t.boolean "wizard_complete", default: false
+    t.integer "from_place_id"
+    t.integer "to_place_id"
+    t.bigint "route_id"
+    t.bigint "driver_id"
+    t.bigint "vehicle_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["departure_time"], name: "index_trips_on_departure_time"

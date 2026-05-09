@@ -18,6 +18,7 @@ gem "solid_queue"
 gem "solid_cable"
 
 gem "inline_svg"
+gem "wicked"
 
 gem "bootsnap", require: false
 gem "kamal", require: false

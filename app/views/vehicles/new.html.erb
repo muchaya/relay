@@ -1,0 +1,45 @@
+<%= turbo_frame_tag "new_vehicle" do %>
+  <%= form_with model: @vehicle, url: vehicles_path, data: { turbo_frame: "new_vehicle" }, class: "mt-8" do |f| %>
+
+    <div class="flex items-center gap-4">
+      <div class="flex-1">
+        <%= f.label :make, "Make", class: "block mb-2 ml-2 font-bold text-sm" %>
+        <%= f.text_field :make, placeholder: "e.g. Toyota", required: true, class: "w-full border border-white-coffee py-3.5 px-6 rounded-full" %>
+        <%= tag.p f.object.errors[:make].first, class: "text-red-500 text-xs mt-1 ml-2" if f.object.errors[:make].any? %>
+      </div>
+
+      <div class="flex-1">
+        <%= f.label :model, "Model", class: "block mb-2 ml-2 font-bold text-sm" %>
+        <%= f.text_field :model, placeholder: "e.g. Corolla", required: true, class: "w-full border border-white-coffee py-3.5 px-6 rounded-full" %>
+        <%= tag.p f.object.errors[:model].first, class: "text-red-500 text-xs mt-1 ml-2" if f.object.errors[:model].any? %>
+      </div>
+    </div>
+
+    <div class="mt-6">
+      <%= f.label :number_plate, "Number plate", class: "block mb-2 ml-2 font-bold text-sm" %>
+      <%= f.text_field :number_plate, placeholder: "e.g. ABС 1234", required: true, class: "w-full border border-white-coffee py-3.5 px-6 rounded-full uppercase tracking-widest" %>
+      <%= tag.p f.object.errors[:number_plate].first, class: "text-red-500 text-xs mt-1 ml-2" if f.object.errors[:number_plate].any? %>
+    </div>
+
+    <div class="mt-6 ml-2">
+      <%= f.label :colour, "Colour", class: "block mb-3 font-bold text-sm" %>
+      <div class="flex flex-wrap gap-2">
+        <% Vehicle::COLORS.each do |color| %>
+          <label class="cursor-pointer" title="<%= color.humanize %>">
+            <%= f.radio_button :colour, color, class: "peer sr-only" %>
+            <div class="h-9 w-9 rounded-full border border-slate-200 transition-all duration-150
+                        peer-checked:ring-[1.2px] peer-checked:ring-offset-2 peer-checked:ring-slate-500
+                        peer-checked:scale-110"
+                 style="background-color: <%= color == 'grey' ? '#6b7280' : color %>;"></div>
+          </label>
+        <% end %>
+      </div>
+      <%= tag.p f.object.errors[:colour].first, class: "text-red-500 text-xs mt-1" if f.object.errors[:colour].any? %>
+    </div>
+
+    <div class="flex items-center gap-3 mt-10">
+      <%= f.submit "Save vehicle",
+            class: "flex-1 bg-blue text-white py-3 rounded-full font-bold text-sm cursor-pointer text-center" %>
+    </div>
+  <% end %>
+<% end %>

@@ -1,17 +1,24 @@
 class Trip < ApplicationRecord
   BOOLEAN_FILTERS = %i[women_only instant_booking].freeze
   COMMITMENT_FEE = 0.50
+  MAX_SEATS = 8
+  MIN_SEATS = 1
 
-  belongs_to :route
+  belongs_to :route, optional: true
   belongs_to :driver, class_name: "User"
-  belongs_to :vehicle
+  belongs_to :vehicle, optional: true
 
   has_many :bookings, dependent: :destroy
 
-  validates :departure_time, :base_price, :seat_capacity, presence: true
-  validates :seat_capacity, numericality: { greater_than: 0 }
-  validates :base_price, numericality: { greater_than_or_equal_to: 0 }
+  enum :status, %w[ upcoming full completed cancelled ].index_by(&:itself)
 
+  #validates :departure_time, :base_price, :seat_capacity, presence: true
+  #validates :seat_capacity, numericality: { greater_than: 0 }
+  #validates :base_price, numericality: { greater_than_or_equal_to: 0 }
+
+  default_scope { where(wizard_complete: true) }
+  
+  scope :incomplete_wizard, -> { unscope(where: :wizard_complete).where(wizard_complete: false) }
   scope :on, ->(day) { where(departure_time: day.beginning_of_day..day.end_of_day) }
   scope :women_only,    -> { where(women_only: true) }
   scope :instant_booking, -> { where(instant_booking: true) }
@@ -24,6 +31,17 @@ class Trip < ApplicationRecord
     trips = trips.verified_drivers if params[:verified_drivers]
     trips
   }
+
+  cattr_accessor :form_steps do
+    {
+      origin: [ :from_place_id ],
+      destination: [ :to_place_id ],
+      seats: [ :description ],
+      fee: [ :capacity, :pricing_type ],
+      vehicle: [ :vehicle_id ]
+    }
+  end
+
 
   def create_booking!(booking_params)
     transaction do

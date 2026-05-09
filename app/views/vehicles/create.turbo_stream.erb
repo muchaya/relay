@@ -1,0 +1,7 @@
+<%= turbo_stream.append "vehicle_options" do %>
+  <%= render "form_steps/trip_steps/vehicle/option", vehicle: @vehicle %>
+<% end %>
+
+<%= turbo_stream.replace "new_vehicle" do %>
+  <%= render "form_steps/trip_steps/vehicle/add_button" %>
+<% end %>

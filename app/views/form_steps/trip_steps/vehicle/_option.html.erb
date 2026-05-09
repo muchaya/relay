@@ -1,0 +1,29 @@
+<label class="block cursor-pointer relative mb-3">
+  <%= radio_button_tag(
+    :vehicle_id,
+    vehicle.id,
+    false,
+    class: "peer sr-only"
+  ) %>
+
+  <%# Direct sibling of input — peer-checked works here %>
+  <div class="w-1/2 text-[14px] font-medium border border-gray-200 rounded-full py-3 px-6 transition
+              peer-checked:border-2 peer-checked:border-slate-500">
+    <div class="flex items-center justify-between text-gray-500">
+      <p class=""><%= vehicle.make %> <%= vehicle.model %></p>
+      <p class=""><%= vehicle.number_plate %></p>
+    </div>
+  </div>
+
+  <%# Also a direct sibling of input — peer-checked works here too %>
+  <div class="absolute top-3 right-4
+              h-6 w-6 rounded-full
+              bg-blue text-white
+              flex items-center justify-center
+              text-xs font-bold
+              opacity-0 transition
+              peer-checked:opacity-100">
+    <%= inline_svg_tag "tick.svg", class: "stroke-2 stroke-white w-4"%>
+  </div>
+
+</label>

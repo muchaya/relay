@@ -1,0 +1,42 @@
+<%= turbo_frame_tag "modal", data: { turbo_action: :advance } do %>
+  <%= form_with model: @trip, url: wizard_path, method: :patch, class: "flex flex-col min-h-[90vh] mx-auto w-3/8 my-8 bg-[rgb(247,247,247)] rounded-4xl border border-gray-100 shadow-xxl px-2" do |form| %>
+    
+      <div class="w-full flex flex-col justify-between flex-1 border bg-white shadow-lg border-gray-200 rounded-3xl my-2">
+        <div>
+          <div class="flex items-center justify-between p-6 border-b mb-12 border-gray-200">
+            <h1 class="font-bold text-xl">Create trip</h1>
+
+            <div class="flex items-center gap-x-3">
+              <h2 class="font-medium text-[12px] text-gray-600 tracking-wide"> Trip <%= step.to_s.humanize %></h2>
+              <%= render "shared/form_progress" %>
+            </div>  
+          </div>
+
+        <div class="px-6">
+          <div>
+            <div class="mb-8">
+              <h1 class="text-xl font-extrabold mb-1">How much are you charging per person?</h1>
+              <p class="text-gray-600 text-base">Set a price for each seat. We recommend $12 per seat from Harare to Mutare.</p>
+            </div>  
+          </div>
+
+          <%= form.text_field :base_price, class: "border border-white-coffee py-4 w-full px-6 rounded-full", required: true, placeholder: "$12" %>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-200 flex items-center justify-between py-4 px-6">
+        <%= link_to "Previous", previous_wizard_path, class: "font-bold text-lg border border-gray-300 px-4 py-2 rounded-md", data: { action: "click->modal#close", modal_id: "turbo-modal" } %>
+        <%= form.submit "Next", class: "bg-blue px-6 py-2.5 rounded-md text-white text-lg font-bold block cursor-pointer" %>
+      </div>
+
+
+        </div>  
+
+
+
+      </div>
+ 
+
+    </div> 
+  <% end %>
+<% end %>

@@ -1,0 +1,21 @@
+<nav class="border-b border-gray-200 py-3 px-18">
+  <div class="max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto">
+    <div class="flex items-baseline gap-x-12">
+      <%= link_to root_path, class: "block" do %>
+        <span class="text-[36px] tracking-tighter font-bold ">Relay.</span>
+      <% end %>
+
+      <ul class="flex items-center gap-x-8 text-lg">
+        <li><%= link_to "Find a ride", for_drivers_path, class: "block rounded-sm" %></li>
+        <li><%= link_to "Post a ride", for_drivers_path, class: "block rounded-sm" %></li>
+        <li><%= link_to "My trips", session_path, data: { turbo_method: :delete }, class: "block decoration-3 decoration-blue underline underline-offset-24" %></li> 
+         <li><%= link_to "Garage", vehicles_path, class: "block rounded-sm" %></li>
+        <li><%= link_to "Profile", session_path, data: { turbo_method: :delete }, class: "block" %></li> 
+      </ul>
+    </div>
+
+    <div>
+      <%= link_to "Menu", "#", class: "block rounded-sm" %>
+    </div>
+  </div>
+</nav>

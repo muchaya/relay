@@ -1,0 +1,27 @@
+<%= link_to root_path, class: "flex items-start gap-x-1" do %>
+  <%= inline_svg_tag "home.svg", class: "block w-6 stroke-[2.5] stroke-black" %>
+  <span class="block text-lg font-bold">Take me home</span>
+<% end %>  
+
+<h1 class="mt-24 font-extrabold text-5xl text-center">Welcome, <%= Current.user.fullname %></h1>
+<h1 class="text-2xl text-center mt-2 text-gray-500">Your next trip starts here.</h1>
+
+<div class="flex items gap-x-24 mt-28 w-4/5 mx-auto">
+  <div class="w-1/2 text-center">
+    <%= image_tag "car-2.png", class: "fill-white stroke-black stroke-1.5 w-32 mx-auto" %>
+    <p class="text-2xl font-medium my-6">
+      <span class="block">Post your first ride</span>
+    </p>
+
+    <button class="bg-blue text-white px-12 py-3.5 rounded-full text-lg">Set up your vehicle and trip</button>
+  </div>
+
+  <div class="w-1/2 text-center">
+    <%= image_tag "car-2-passenger.png", class: "fill-white stroke-black stroke-1.5 w-32 mx-auto" %>
+    <p class="text-2xl font-medium my-6">
+      <span class="block">Find a ride</span>
+    </p>
+
+    <button class="bg-blue text-white px-12 py-3.5 rounded-full text-lg">Search for available trips</button>
+  </div>
+</div>

@@ -11,7 +11,7 @@
         <% end %>
       </div>
 
-      <p id="form-error" class="text-[14px] text-[#c01f2b] my-4"></p>
+      <div id="form-error-container"></div>
 
       <div class="flex flex-col">
         <div class="relative mt-3.5">
@@ -56,7 +56,7 @@
           <%= link_to "Forgot password?", new_password_path, class: "w-1/3 block text-lg font-medium decoration underline underline-offset-6" %>
         </div>
         
-        <%= link_to "Don't have an account? Join now", new_password_path, class: "w-fit mt-3 text-lg font-medium block mx-auto" %>
+        <%= link_to "Don't have an account? Join now", new_registration_path(return_to: params[:return_to]), data: { action: 'click->modal#open', modal_id_param: "turbo-modal", turbo_frame: :modal }, class: "w-fit mt-3 text-lg font-medium block mx-auto" %>
       </div>
     <% end %>
   <% end %>

@@ -22,7 +22,8 @@ Rails.application.routes.draw do
   
   resources :bookings, only: [ :new, :create, :show ]
   resources :routes, only: [:index]
-  resources :trips, only: [:show]
+  resources :trips, only: [:new, :show]
+  resources :vehicles, only: [:index, :new, :create]
 
 
   resources :bookings do
@@ -31,6 +32,14 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :account do
+    resources :trips, only: [:index]
+  end
+
+  resource :onboardings, only: :show
+
+  resources :build_trip, only: %i[update show], controller: "form_steps/trip_steps"
+  
   get "/for-drivers", to: "static#for_drivers"
   get "/for-passengers", to: "static#for_passengers"
 end

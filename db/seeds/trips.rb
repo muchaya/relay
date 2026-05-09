@@ -25,7 +25,8 @@ this_month.all_month.each do |date|
         driver: driver,
         route_slug: route_slug,
         date: date,
-        time: TIMES.sample
+        time: TIMES.sample,
+        wizard_complete: true
       )
     end
   end

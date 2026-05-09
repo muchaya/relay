@@ -1,0 +1,8 @@
+<% if @user.errors.any? %>  
+  <%= turbo_stream.update "form-error-container" do %>
+    <div class="flex items-center gap-x-3">
+      <%= inline_svg_tag 'error.svg', style: "width: 24px; height: 24px;  fill: #e11d48" %>
+      <p class="text-rose-600 text-sm"><%= @user.errors.full_messages.first %></p>
+    </div>
+  <% end %>
+<% end %>  
